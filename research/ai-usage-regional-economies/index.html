@@ -115,8 +115,26 @@
 
     .lede { font-size: 1.1rem; color: var(--text-primary); }
 
-    /* ── FIGURES ── */
-    .figure-block { margin: 2.75rem 0 2.5rem; }
+    /* ── FIGURES ──
+       Body text stays at the 720px reading measure, but figures break out of
+       it. Figure 1 needs at least 900px of iframe width or its own internal
+       breakpoint fires and it stacks into a mobile layout. */
+    .figure-block {
+      margin: 2.75rem 0 2.5rem;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(920px, calc(100vw - 4rem));
+    }
+
+    .figure-block.figure-wide { width: min(1180px, calc(100vw - 4rem)); }
+
+    /* Prose inside a wide figure stays readable. */
+    .figure-note, .figure-cap {
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     .figure-cap {
       font-size: 0.75rem;
@@ -175,7 +193,9 @@
       margin-top: 0.75rem;
     }
 
-    @media (max-width: 900px) {
+    /* Below 1000px the breakout can no longer give Figure 1 the ~900px of
+       iframe width it needs, so the static image takes over instead. */
+    @media (max-width: 1000px) {
       .wide-only { display: none; }
       .wide-fallback { display: block; }
     }
@@ -359,6 +379,15 @@
     @media (max-width: 700px) {
       .article-head { padding: 3rem 0 2rem; }
       .measure { padding: 0 1.5rem; }
+
+      /* Cancel the breakout on phones — it would sit narrower than the text. */
+      .figure-block,
+      .figure-block.figure-wide {
+        position: static;
+        left: auto;
+        transform: none;
+        width: 100%;
+      }
       .appendix-content { padding: 1.25rem 1.2rem 0.5rem; }
       details.appendix > summary { padding: 1rem 1.1rem 1rem 2.4rem; }
     }
@@ -557,7 +586,7 @@
       </p>
 
       <!-- FIGURE 1 -->
-      <figure class="figure-block">
+      <figure class="figure-block figure-wide">
         <figcaption class="figure-cap">Figure 1 — Technical share of Claude usage across 279 regions</figcaption>
         <div class="figure-frame wide-only">
           <iframe src="figures/fig2_linked_map_scatter.html"
