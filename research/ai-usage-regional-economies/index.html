@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>More service jobs, less technical AI use — a subnational look</title>
+  <meta name="description" content="Across 279 OECD regions in 35 countries, regions with more service employment show a lower share of AI usage going to technical work — within countries, not between them. Anthropic's Economic Index paired with OECD regional employment statistics." />
+  <meta name="author" content="Carlos Ignacio Navarro" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+
+  <!-- PHASE 5: replace every https://SITE_BASE/ below with the live URL. -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Carlos Ignacio Navarro" />
+  <meta property="og:title" content="More service jobs, less technical AI use — a subnational look" />
+  <meta property="og:description" content="Across 279 OECD regions in 35 countries, regions with more service employment show a lower share of AI usage going to technical work — within countries, not between them." />
+  <meta property="og:url" content="https://SITE_BASE/research/ai-usage-regional-economies/" />
+  <meta property="og:image" content="https://SITE_BASE/research/ai-usage-regional-economies/figures/fig2_linked_map_scatter_static.png" />
+  <meta property="og:image:alt" content="A world map and a scatter plot showing the technical share of Claude usage falling as regional service employment rises, across 279 regions." />
+  <meta property="article:published_time" content="2026-08-01" />
+  <meta property="article:author" content="Carlos Ignacio Navarro" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <style>
+    /* Article layout only. Tokens, nav, buttons, pills and the footer come
+       from styles.css. This page deliberately uses <main>/<article> rather
+       than <section> so the landing page's section rhythm does not apply. */
+
+    .article {
+      padding-top: 60px;
+      background:
+        radial-gradient(ellipse at 80% 0%, rgba(53, 117, 198, 0.05) 0%, transparent 55%),
+        var(--bg-primary);
+    }
+
+    .measure {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── ARTICLE HEADER ── */
+    .article-head { padding: 4.5rem 0 2.5rem; }
+
+    .article-kicker {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 1rem;
+    }
+
+    .article-title {
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin-bottom: 1.25rem;
+    }
+
+    .article-standfirst {
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .article-byline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0.85rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(53, 117, 198, 0.18);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .article-byline .author { font-weight: 600; color: var(--text-primary); }
+    .article-byline .sep { color: rgba(74, 95, 122, 0.45); }
+
+    /* ── BODY TYPOGRAPHY ── */
+    .article-body { padding-bottom: 3rem; }
+
+    .article-body h2 {
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 3.25rem 0 1.25rem;
+    }
+
+    .article-body h2::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-top: 0.85rem;
+    }
+
+    .article-body p {
+      font-size: 1.02rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: 1.35rem;
+    }
+
+    .article-body p strong { color: var(--text-primary); font-weight: 600; }
+    .article-body a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 2px; }
+    .article-body a:hover { color: var(--accent-dark); }
+
+    .lede { font-size: 1.1rem; color: var(--text-primary); }
+
+    /* ── FIGURES ── */
+    .figure-block { margin: 2.75rem 0 2.5rem; }
+
+    .figure-cap {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .figure-frame {
+      background: #ffffff;
+      border: 1px solid rgba(53, 117, 198, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(13, 33, 68, 0.05);
+    }
+
+    .figure-frame iframe {
+      display: block;
+      width: 100%;
+      border: 0;
+    }
+
+    .figure-note {
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(53, 117, 198, 0.14);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 1.1rem 1.35rem;
+      margin-top: 1.1rem;
+    }
+
+    .figure-note p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+    }
+
+    .figure-note p:last-child { margin-bottom: 0; }
+
+    /* Wide figures: interactive above 900px, static fallback below. */
+    .wide-fallback { display: none; }
+
+    .wide-fallback img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid rgba(53, 117, 198, 0.15);
+    }
+
+    .wide-fallback .fallback-note {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 0.75rem;
+    }
+
+    @media (max-width: 900px) {
+      .wide-only { display: none; }
+      .wide-fallback { display: block; }
+    }
+
+    /* ── JUMP BLOCK ── */
+    .jump {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(53, 117, 198, 0.16);
+      border-radius: 8px;
+      padding: 1.6rem 1.75rem;
+      margin: 3rem 0 1rem;
+    }
+
+    .jump-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 0.9rem;
+    }
+
+    .jump ul { list-style: none; }
+
+    .jump li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(53, 117, 198, 0.12);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .jump li:last-child { border-bottom: 0; }
+
+    .jump a {
+      color: var(--text-primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .jump a:hover { color: var(--accent-dark); }
+    .jump .jump-desc { color: var(--text-secondary); font-weight: 400; }
+
+    /* ── APPENDICES ── */
+    .appendices { padding-bottom: 4rem; }
+
+    .appendices > h2 {
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      font-weight: 700;
+      margin: 2.5rem 0 0.5rem;
+    }
+
+    .appendix-intro {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    details.appendix {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(53, 117, 198, 0.16);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    details.appendix > summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 1.15rem 1.5rem 1.15rem 2.6rem;
+      position: relative;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    details.appendix > summary::-webkit-details-marker { display: none; }
+
+    details.appendix > summary::before {
+      content: '+';
+      position: absolute;
+      left: 1.35rem;
+      top: 1.05rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+      line-height: 1.4;
+    }
+
+    details.appendix[open] > summary::before { content: '−'; }
+    details.appendix > summary:hover { background: rgba(53, 117, 198, 0.04); }
+    details.appendix[open] > summary { border-bottom: 1px solid rgba(53, 117, 198, 0.14); }
+
+    /* A real <h3> so the appendix titles appear in the document outline,
+       with the summary's own type scale reapplied. */
+    .appendix-name {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .appendix-content { padding: 1.5rem 1.6rem 0.5rem; }
+
+    .appendix-content h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 1.75rem 0 0.6rem;
+    }
+
+    .appendix-content h4:first-child { margin-top: 0; }
+
+    .appendix-content p {
+      font-size: 0.92rem;
+      line-height: 1.72;
+      color: var(--text-secondary);
+      margin-bottom: 1.1rem;
+    }
+
+    .appendix-content p strong { color: var(--text-primary); font-weight: 600; }
+    .appendix-content em { font-style: italic; }
+    .appendix-content a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 2px; }
+
+    .appendix-content code {
+      font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+      font-size: 0.85em;
+      background: rgba(53, 117, 198, 0.08);
+      border-radius: 3px;
+      padding: 0.1em 0.35em;
+    }
+
+    /* ── TABLES ── */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.5rem 0 1.4rem;
+      font-size: 0.85rem;
+    }
+
+    .spec-table th,
+    .spec-table td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid rgba(53, 117, 198, 0.14);
+    }
+
+    .spec-table th {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+    }
+
+    .spec-table td { color: var(--text-secondary); }
+    .spec-table td:not(:first-child) { font-variant-numeric: tabular-nums; }
+    .spec-table tr.preferred td { color: var(--text-primary); font-weight: 600; }
+
+    /* ── CLOSING LINKS ── */
+    .article-links {
+      border-top: 1px solid rgba(53, 117, 198, 0.18);
+      padding: 2rem 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      padding-bottom: 3rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .back-link:hover { color: var(--accent-dark); }
+
+    @media (max-width: 700px) {
+      .article-head { padding: 3rem 0 2rem; }
+      .measure { padding: 0 1.5rem; }
+      .appendix-content { padding: 1.25rem 1.2rem 0.5rem; }
+      details.appendix > summary { padding: 1rem 1.1rem 1rem 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="../../index.html">CIN</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="../../index.html#about">About</a></li>
+    <li><a href="../../index.html#experience">Experience</a></li>
+    <li><a href="../../index.html#skills">Skills</a></li>
+    <li><a href="index.html">Research</a></li>
+    <li><a href="../../index.html#publications">Publications</a></li>
+    <li><a href="../../index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main class="article">
+  <article>
+
+    <!-- ── HEADER ── -->
+    <header class="article-head measure">
+      <p class="article-kicker">Regional economics</p>
+      <h1 class="article-title">More service jobs, less technical AI use — a subnational look</h1>
+      <p class="article-standfirst">
+        Anthropic's Economic Index paired with OECD regional employment statistics, across
+        279 regions in 35 countries. The regions you would most expect to be doing technical
+        work with AI are — within their own countries — the regions doing proportionally less
+        of it.
+      </p>
+      <div class="article-byline">
+        <span class="author">Carlos Ignacio Navarro</span>
+        <span class="sep">·</span>
+        <span>August 2026</span>
+        <span class="sep">·</span>
+        <span>5 min read · appendices ~15 min more</span>
+      </div>
+    </header>
+
+    <!-- ── BODY ── -->
+    <div class="article-body measure">
+
+      <p class="lede">
+        Most of what people ask Claude to do is professional work, and that is true almost
+        everywhere. Across 279 regions in 35 countries, the professional and managerial
+        occupations — management, business, computing, engineering, law, education, health —
+        account for about three-quarters of usage. How service-heavy a region's economy is
+        tells you essentially nothing about that share.
+      </p>
+
+      <p>
+        Narrow the question and the picture changes. The Economic Index sorts each conversation
+        into one of the 22 major occupational groups of the US Standard Occupational
+        Classification, and one of those groups is <strong>Computer and Mathematical</strong> —
+        software development, systems analysis, data science, statistics, actuarial work. That
+        is the group this piece is about, and I will call it <em>technical</em> usage from here
+        on. It averages 24% of a region's usage and runs from about 19% to 32%.
+      </p>
+
+      <p>
+        The obvious guess is that technical usage concentrates where the offices are: financial
+        districts, professional-services hubs, the regions where employment sits in offices
+        rather than on factory floors. It is a reasonable guess. In the data it is backwards.
+      </p>
+
+      <p>
+        Pairing the Economic Index with the OECD's regional statistics, I compared 279 regions
+        across 35 countries — states, provinces, Länder and their equivalents, the first
+        administrative tier below the national government. Within countries, regions with
+        <strong>more</strong> service employment show a <strong>lower</strong> technical share
+        of usage. Moving from the 10th to the 90th percentile of regional service employment —
+        from 57% of employment to 86% — is associated with a drop of about 1.7 percentage
+        points in the technical share, roughly 7% of its average and about 1.3 standard
+        deviations of the variation that exists inside a typical country.
+      </p>
+
+      <p>
+        That is not a rounding error, and it is not driven by any one country.
+      </p>
+
+      <h2>Three ways to measure AI, and a gap between them</h2>
+
+      <p>
+        There are broadly three ways economists have measured artificial intelligence in the
+        economy, and they answer different questions.
+      </p>
+
+      <p>
+        The first is <strong>exposure</strong>: what AI could plausibly do.
+        <a href="https://sms.onlinelibrary.wiley.com/doi/full/10.1002/smj.3286" target="_blank" rel="noopener">Felten,
+        Raj and Seamans</a> built the standard measure here, linking catalogued applications of AI to the
+        workplace abilities that O*NET uses to describe occupations, then aggregating to
+        occupations, industries and geographies. Their measure is deliberately agnostic about
+        consequences — it says nothing about whether AI replaces a worker or makes them faster.
+        It measures potential contact, not outcome.
+      </p>
+
+      <p>
+        The second is <strong>adoption</strong>: what workers and firms say they do.
+        <a href="https://www.nber.org/papers/w34995" target="_blank" rel="noopener">Bick,
+        Blandin, Deming, Fuchs-Schündeln and Jessen</a> fielded harmonized surveys across the US
+        and Europe and found a substantial adoption gap, with US workers reporting higher use
+        than their European counterparts. The more interesting result is what explains it.
+        Differences in who works where — occupation, industry, firm size, demographics —
+        account for a good share of the gap, and once you add whether a worker's employer
+        actively encourages AI use, very little of it is left unexplained. Adoption looks less
+        like a story about national character and more like a story about workplaces.
+      </p>
+
+      <p>
+        The third is <strong>usage</strong>: what people actually do, observed rather than
+        reported. This is what the Anthropic Economic Index provides, by classifying the
+        content of conversations with Claude.
+        <a href="https://www.dallasfed.org/research/economics/2026/0707" target="_blank" rel="noopener">Scott
+        Davis at the Dallas Fed</a> recently connected two of these traditions, showing that the
+        link between a sector's AI exposure and its recent productivity growth is stronger in
+        countries where AI usage is more intense.
+      </p>
+
+      <p>
+        It is a genuinely useful result, carefully framed as correlational, and it is where this
+        piece starts. A country-level comparison has about twenty observations, and countries
+        differ in a thousand ways at once — language, regulation, income, industrial structure,
+        broadband. The pattern is visible at that scale; what sits behind it is not separable
+        there.
+      </p>
+
+      <p>
+        On Davis's own usage index, Germany sits at 1.79 and France at 2.66 — a gap of nearly
+        50% between two neighbouring economies of similar size and wealth. "Country" turns out
+        to be a coarse unit even for the thing being measured. Whatever is driving AI usage, it
+        is not operating at the level of continents.
+      </p>
+
+      <p>
+        <strong>That is the gap this piece walks into.</strong> Release 6 of the Economic Index
+        reports usage for 652 first-level administrative regions rather than just countries.
+        That is enough to stop comparing countries to each other and start comparing regions
+        <em>inside</em> the same country — provided you can find comparable economic statistics
+        for each region, which is where the OECD comes in and where most of the sample goes.
+        This piece covers 35 countries rather than the 128 the Economic Index reaches because
+        comparing regions means knowing each region's employment structure, and the OECD
+        Regional Database is the only harmonized source for that. The full accounting from 652
+        regions down to 279 is in <a href="#appendix-a">Appendix A</a>.
+      </p>
+
+      <h2>Why comparing regions inside countries matters</h2>
+
+      <p>
+        Comparing Estonia's AI usage to Poland's tells you something, but you can't say what.
+        The two differ in income, language, regulation, industry mix and digital infrastructure,
+        and any of those could drive the result.
+      </p>
+
+      <p>
+        Comparing Bavaria to Saxony-Anhalt is a different exercise. Both sit under the same
+        national government, the same language, the same regulatory regime, the same broadly
+        similar institutions. What differs is regional: the local economy, the local labour
+        force, the local mix of employers.
+      </p>
+
+      <p>
+        A word on what I mean by service employment, because it is broader than it sounds. It
+        is the standard national-accounts definition: everything that isn't agriculture, mining,
+        manufacturing, utilities or construction. Retail and wholesale trade, transport, hotels
+        and restaurants, information and communication, finance, real estate, professional and
+        administrative services, public administration, education, health, arts and recreation.
+        A supermarket cashier, a bus driver, a nurse and an investment banker are all service
+        employment. It is <strong>not</strong> a synonym for office work or white-collar work —
+        and it is not the same thing as the white-collar share of <em>usage</em> from the
+        opening, which describes what people ask Claude to do rather than where they work.
+        Regions in the sample run from about 37% service employment to 97.5%.
+      </p>
+
+      <p>
+        That breadth is worth worrying about: a region can be service-heavy because of its
+        hotels or because of its law firms, and those are not the same economy. So I tested a
+        narrower measure covering only information, finance and professional services. It gives
+        the same sign, which means the finding is not manufactured by lumping restaurant work in
+        with professional services. It also cannot be separated from how much Claude usage a
+        region generates, which is why the broad measure is the one I report.
+        <a href="#appendix-a">Appendix A</a> has both.
+      </p>
+
+      <p>
+        Statistically this is a country fixed effect, and it does the heavy lifting throughout.
+        Every comparison below is between regions of the same country. National differences are
+        subtracted out before anything is estimated, so nothing here can be explained by a
+        country being rich, or English-speaking, or lightly regulated.
+      </p>
+
+      <!-- FIGURE 1 -->
+      <figure class="figure-block">
+        <figcaption class="figure-cap">Figure 1 — Technical share of Claude usage across 279 regions</figcaption>
+        <div class="figure-frame wide-only">
+          <iframe src="figures/fig2_linked_map_scatter.html"
+                  height="900"
+                  loading="lazy"
+                  title="Linked map and scatter: technical share of Claude usage across 279 regions, with a levels and deviation-from-country-average toggle"></iframe>
+        </div>
+        <div class="wide-fallback">
+          <img src="figures/fig2_linked_map_scatter_static.png"
+               alt="Map and scatter plot showing the technical share of Claude usage across 279 regions, with a downward-sloping relationship against service employment."
+               onerror="this.style.display='none'" />
+          <p class="fallback-note">
+            The interactive version of this figure needs a wider screen —
+            <a href="figures/fig2_linked_map_scatter.html" target="_blank" rel="noopener">open it in a new tab</a>.
+          </p>
+        </div>
+        <div class="figure-note">
+          <p><strong>How to read this.</strong> The map and the scatter show the same 279 regions,
+          and the toggle above them changes what "high" means in both panels at once.</p>
+          <p>In <strong>Levels</strong>, the map shows where the technical share of usage is
+          highest, and the scatter plots that share against service employment. The
+          slope is steeply downward — but that is not yet evidence of anything. The darkest regions
+          cluster in a handful of countries, and the scatter shows the data clumping into
+          country-shaped clouds. This is the view that puts Estonia next to Mexico next to Germany,
+          and those places differ in income, language, regulation and industrial structure all at once.</p>
+          <p>Switch to <strong>Deviation from country average</strong> and every region is
+          re-expressed as a difference from its own country's mean. The clouds collapse onto a
+          common origin. The map stops showing which regions are technical and starts showing which
+          are technical <em>for their country</em>. The relationship survives at roughly half its
+          raw size.</p>
+          <p>That collapse is the country fixed effect, performed rather than asserted. Everything
+          that follows in this piece is measured in the second view, not the first. Click any region
+          to find it in both panels.</p>
+        </div>
+      </figure>
+
+      <h2>The finding</h2>
+
+      <p>
+        Across all 279 regions pooled together, service employment and technical AI use are
+        negatively correlated at −0.65. That much could be a composition effect: rich
+        service-heavy countries might simply differ from poorer industrial ones.
+      </p>
+
+      <p>
+        It survives the country fixed effect. Within countries, a one percentage point increase
+        in a region's service employment share is associated with a 0.058 percentage point
+        decrease in the technical share of usage. Adding controls for regional GDP per capita
+        and the share of the population with tertiary education attenuates the estimate but does
+        not break it.
+      </p>
+
+      <!-- FIGURE 2 -->
+      <figure class="figure-block">
+        <figcaption class="figure-cap">Figure 2 — Within-country scatter, with a country selector</figcaption>
+        <div class="figure-frame">
+          <iframe src="figures/fig2_within_scatter.html"
+                  height="620"
+                  loading="lazy"
+                  title="Within-country scatter: every region as a deviation from its own country's average, with a country selector"></iframe>
+        </div>
+        <div class="figure-note">
+          <p><strong>How to read this.</strong> Both axes are differences from a region's own
+          country average. A region sitting at zero on the horizontal axis has exactly the service
+          employment share that is typical of its country — not of the world.</p>
+          <p>Pick a country from the dropdown and its regions stay in colour while the rest fade to
+          grey. That re-centring is what a fixed effect does: inside Germany the comparison becomes
+          Bavaria against Saxony-Anhalt, and Germany's national position drops out of the arithmetic
+          entirely. The dotted line is that country's own slope, drawn for the eighteen countries
+          with at least five regions.</p>
+        </div>
+      </figure>
+
+      <p>
+        Sixteen of those eighteen slope the same way as the pooled estimate. The two that don't —
+        Chile and Poland — are weak enough to be indistinguishable from noise at six and eleven
+        regions. I come back to that below.
+      </p>
+
+      <p>
+        The United States is the cleanest test available. It contributes 51 regions measured on a
+        single consistent statistical system, so nothing hinges on harmonizing definitions across
+        borders. Within the US, the relationship is more than twice as strong as the international
+        average.
+      </p>
+
+      <!-- FIGURE 3 -->
+      <figure class="figure-block">
+        <figcaption class="figure-cap">Figure 3 — US states: service employment against technical usage</figcaption>
+        <div class="figure-frame">
+          <iframe src="figures/fig3_us_states.html"
+                  height="600"
+                  loading="lazy"
+                  title="Scatter plot of 51 US states: service employment share against technical share of Claude usage"></iframe>
+        </div>
+      </figure>
+
+      <p>
+        One further piece of the pattern is worth stating, because it narrows what can be going on.
+        When the technical share of usage falls, no particular occupation absorbs it. Four
+        occupational groups — office and administrative support, sales, education, and arts and
+        media — are reported in every single region, so nothing is missing from that comparison.
+        Their share of <em>non-technical</em> usage is essentially constant from region to region.
+        When the technical slice shrinks, everything else expands in proportion. Nobody picks up
+        the slack.
+      </p>
+
+      <p>
+        The same holds one level up. Recall that professional and managerial work is about
+        three-quarters of usage everywhere and shows no relationship to service employment.
+        Technical work sits inside that block, and it <em>does</em> fall — so in principle the
+        rest of the block should be rising to compensate. It shows no detectable rise: +0.03
+        with a t-statistic of 0.99, and nearer zero still once regional usage volume is
+        controlled for. Management, business, legal, health and education usage are not visibly
+        absorbing what computing gives up.
+      </p>
+
+      <h2>How hard I tried to break it</h2>
+
+      <p>
+        A surprising result deserves more scepticism than a confirming one, so this is where I
+        spent most of the time.
+      </p>
+
+      <p>
+        <strong>No single country drives it.</strong> I re-estimated the model 35 times, each time
+        dropping one country entirely. The coefficient ranged from −0.052 to −0.067 across all 35
+        refits, and the median landed exactly on the full-sample estimate. Not one refit came close
+        to zero.
+      </p>
+
+      <!-- FIGURE 4 -->
+      <figure class="figure-block">
+        <figcaption class="figure-cap">Figure 4 — Leave-one-country-out: 35 refits</figcaption>
+        <div class="figure-frame">
+          <iframe src="figures/fig4_loo.html"
+                  height="740"
+                  loading="lazy"
+                  title="Sorted dot plot of the service employment coefficient across 35 leave-one-country-out refits"></iframe>
+        </div>
+      </figure>
+
+      <p>
+        <strong>It isn't a US result in disguise.</strong> The US is 18% of the sample, which is a
+        lot of weight for one country. Dropping it entirely leaves the estimate at 90% of its
+        original size and still comfortably significant.
+      </p>
+
+      <p>
+        <strong>It isn't one strange region.</strong> Washington DC is an extreme outlier, with
+        97.5% of employment in services. Removing it changes nothing. More tellingly, when I
+        identified the five regions with the most statistical leverage over the coefficient and
+        dropped them, the relationship got <em>stronger</em>. The influential observations were
+        working against the result, not creating it.
+      </p>
+
+      <p>
+        <strong>The standard errors aren't flattering me.</strong> With 35 countries, one
+        contributing a fifth of the observations, conventional clustered standard errors are
+        optimistic. I re-ran the key test with a bootstrap that resamples at the country level
+        rather than trusting an asymptotic approximation. The honest critical values are wider
+        than the textbook ones, and the result clears them anyway.
+      </p>
+
+      <p>
+        <strong>A completely separate measure of technical usage agrees.</strong> The Economic
+        Index classifies each conversation two ways: by the occupation the task belongs to, and by
+        the <em>artifact</em> it produced — the concrete thing the user ended up with. Everything
+        above uses the occupational classification. So I built a second measure from the artifact
+        side, adding up the shares of usage that produce code fixes, scripts, database queries and
+        configuration files.
+      </p>
+
+      <p>
+        Nothing about how it is built is shared with the first. Different classification scheme,
+        different question, and — this is the part that matters — <strong>no suppression at all.</strong> The
+        artifact data is reported for all 652 regions with every category present, so none of the
+        disclosure problems described in the appendices apply to it. No coverage variable, no
+        renormalization, no volume control needed.
+      </p>
+
+      <p>
+        It gives the same answer. Within countries, a one point rise in service employment is
+        associated with a 0.056 point fall in the artifact measure, against 0.058 for the
+        occupational one. Measured in standard deviations, the artifact version is slightly
+        <em>stronger</em>. The two correlate at 0.65 within country — closely enough to be tracking
+        the same thing, loosely enough that their agreement isn't circular.
+      </p>
+
+      <!-- FIGURE 5 -->
+      <figure class="figure-block">
+        <figcaption class="figure-cap">Figure 5 — The two measures side by side</figcaption>
+        <div class="figure-frame">
+          <iframe src="figures/fig5_two_measures.html"
+                  height="600"
+                  loading="lazy"
+                  title="Occupational versus artifact measure: correlation panel and coefficient dumbbells across three specifications"></iframe>
+        </div>
+      </figure>
+
+      <p>
+        One caveat worth stating: these are two classifications of the same conversations, not two
+        independent datasets. The test rules out quirks of the occupational taxonomy and of the
+        disclosure structure, which is what was in doubt. It cannot rule out something common to
+        the underlying sample.
+      </p>
+
+      <p>
+        <strong>And I rebuilt the whole thing in another language.</strong> I replicated the entire
+        pipeline in Stata — the data extraction, the merge, the estimation — working only from my
+        own written method description rather than from the original Python code. That constraint
+        is the point: porting code line by line reproduces whatever misunderstanding was baked into
+        it, while rebuilding from the description tests whether the description is actually right.
+        Every intermediate dataset and every published estimate came back to floating-point
+        tolerance. It surfaced three reporting issues, all documented in the appendices, and no
+        substantive error.
+      </p>
+
+      <p>
+        The relationship also holds at a finer geographic grain, and in a specification that drops
+        the education control. Details are in the appendix.
+      </p>
+
+      <h2>The explanation I couldn't confirm</h2>
+
+      <p>
+        I had a tidy story for why the sign comes out this way, and I want to be clear that I could
+        not confirm it.
+      </p>
+
+      <p>
+        The story is <strong>breadth</strong>. In an industrial region, the small population of
+        Claude users skews heavily toward engineers and IT staff, so the technical slice looks
+        large. As service employment rises, usage spreads across sales, administration, healthcare,
+        education and management, and the technical slice shrinks by dilution rather than by any
+        decline in technical work.
+      </p>
+
+      <p>
+        That is a testable claim, not an interpretation, so I tested it — three different ways, and
+        all three failed. The obstacle is a privacy feature of the data: the Economic Index
+        withholds occupation categories in a region when the underlying counts are too small, so a
+        region with more usage overall has more categories clearing that threshold and
+        <em>appears</em> more occupationally diverse for reasons that have nothing to do with
+        diffusion. Control for regional usage volume and every measure of breadth I tried collapses,
+        while the main finding stands at close to full strength.
+      </p>
+
+      <p>
+        Along the way one of my own robustness checks turned out to be worthless, in a way I think
+        is more instructive than the checks that passed. I've written both up in Appendix B.
+      </p>
+
+      <p>
+        So breadth is not supported. That is a failure of identification rather than proof that
+        breadth is false — the data cannot settle it either way, and I'd rather say so than dress a
+        null up as a finding.
+      </p>
+
+      <h2>What this can and can't tell you</h2>
+
+      <p>Three limits worth being blunt about.</p>
+
+      <p>
+        <strong>This measures the mix, not the amount.</strong> Below the country level, the
+        Economic Index reports what people use Claude <em>for</em>, not how much they use it per
+        person — usage intensity exists only for the United States. So I can say the technical share
+        of usage is lower in service-heavy regions. I cannot say whether less coding is happening,
+        or the same amount of coding surrounded by more of everything else. Those are different
+        worlds and this data cannot separate them.
+      </p>
+
+      <p>
+        <strong>This is about regions, not about the people using Claude.</strong> Service
+        employment describes a region's workforce. The usage data describes whoever in that region
+        is talking to Claude, and those are not the same population — Claude users are not a random
+        sample of local workers, and nothing here links an individual's occupation to their own
+        usage. The finding is that regions with a particular employment structure show a particular
+        usage mix. It is not that service workers themselves use AI less technically. That
+        distinction is easy to lose and it changes what the result means.
+      </p>
+
+      <p>
+        <strong>Nothing here is causal.</strong> These are correlations across regions at a point in
+        time, with country fixed effects and a handful of controls. Regions differ in ways I haven't
+        measured, and I make no claim that changing a region's industrial structure would change how
+        its residents use AI.
+      </p>
+
+      <h2>What's left</h2>
+
+      <p>What survives all of that is a fact and a question.</p>
+
+      <p>
+        <strong>The fact.</strong> Within countries, the regions where you would most expect AI to
+        be doing technical work are the regions where it does proportionally less of it. That holds
+        across 35 countries, across the 51 US states measured on a single statistical system, across
+        35 refits that each drop a country entirely, and across a second measure of technical usage
+        built from a different classification scheme with no disclosure suppression in it at all.
+      </p>
+
+      <p>
+        <strong>Why it matters.</strong> The natural way to guess where AI does technical work is to
+        read it off the local industry mix: more offices, more technical use. Within countries the
+        sign is the opposite. Anyone projecting regional AI effects from employment structure is
+        working from a mapping that this data reverses.
+      </p>
+
+      <p>
+        <strong>The question.</strong> Why it runs that way, I can't tell you. Dilution is the
+        natural candidate — technical usage looking large in industrial regions because few people
+        there use Claude and those who do skew technical — and I tested it three ways without being
+        able to confirm any of them. What the data can do is rule out a good deal about what the
+        pattern isn't. What it can't do yet is say what it is.
+      </p>
+
+      <p>
+        I would rather publish a robust fact with an open question attached than a tidy story the
+        evidence doesn't carry.
+      </p>
+
+      <!-- ── JUMP BLOCK ── -->
+      <div class="jump">
+        <p class="jump-title">If you want to check my work</p>
+        <ul>
+          <li>
+            <a href="#appendix-a">Appendix A — How the analysis was built</a><br />
+            <span class="jump-desc">Data, matching, specification, and why the volume control is
+            left out of the preferred estimate.</span>
+          </li>
+          <li>
+            <a href="#appendix-b">Appendix B — Three attempts at breadth, and a robustness check
+            that wasn't</a><br />
+            <span class="jump-desc">Why the tidy explanation could not be identified, and the
+            argument of mine that turned out to be circular.</span>
+          </li>
+          <li>
+            <a href="#appendix-c">Appendix C — One error, four disguises</a><br />
+            <span class="jump-desc">The missing-value mistake that showed up four times in two
+            languages, and what caught it.</span>
+          </li>
+          <li>
+            <a href="data-dictionary.html">Full data dictionary</a><br />
+            <span class="jump-desc">Every variable in the analysis, defined twice — once
+            technically, once for a reader with no economics background.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- ── APPENDICES ── -->
+    <div class="appendices measure">
+      <h2>Appendices</h2>
+      <p class="appendix-intro">
+        All three are closed by default. Each summary names what is inside, so you can go straight
+        to the objection you actually have.
+      </p>
+
+      <!-- APPENDIX A -->
+      <details class="appendix" id="appendix-a">
+        <summary>
+          <h3 class="appendix-name">Appendix A — How the analysis was built</h3>
+          Data sources and vintage; how Economic Index regions were matched to OECD regions; the
+          full accounting from 652 regions down to 279, and why the sample is 35 countries rather
+          than 128; the exact specification; how service employment and technical usage are each
+          defined; the control ladder for both measures; what happens under a narrower,
+          white-collar-only definition of services, and why that is reported as a failure rather
+          than a robustness check; where the opening's three-quarters figure comes from; why regional
+          usage volume is deliberately <em>not</em> in the preferred specification; why Japan is
+          missing; and three notes on the standard errors — the degrees-of-freedom convention, why
+          the US-only row cannot cluster, and the Monte Carlo error on the bootstrap p-value.
+        </summary>
+        <div class="appendix-content">
+          <p><strong>Data.</strong> Anthropic Economic Index, Release 6 (June 2026), covering two
+          monthly windows in April and May 2026. Usage composition is reported for 652 first-level
+          administrative regions. I use the occupational breakdown, which classifies conversations
+          into the 22 major groups of the US Standard Occupational Classification.</p>
+
+          <p><strong>Matching.</strong> Economic Index regions are keyed on ISO 3166-2 codes; OECD
+          regional statistics use OECD TL2 codes. I built a crosswalk between them from the OECD's
+          territorial correspondence table, fuzzy-matched on both English and local region names,
+          then hand-verified every aggregation. Regional covariates — employment by industry, GDP
+          per capita, educational attainment — come from the OECD Regional Database via its SDMX
+          API. US states are supplemented from the Bureau of Labor Statistics' Quarterly Census of
+          Employment and Wages, which is finer and more current than the OECD series for the US;
+          because US levels sit above OECD's for definitional reasons, only within-US variation is
+          used and the country fixed effect absorbs the rest.</p>
+
+          <h4>From 652 regions to 279</h4>
+
+          <p>The Economic Index reports 652 subregions across 128 countries. Of those, 433 map to an
+          OECD TL2 region through the territorial correspondence table — the rest are in countries
+          the OECD's regional database does not cover. Requiring complete data on the analysis
+          covariates (GDP per capita, service employment share, tertiary attainment, population)
+          leaves 295 subregions; requiring the occupational breakdown leaves 293. Collapsing those to
+          their parent TL2 regions, usage-weighted, gives <strong>279 regions across 35
+          countries</strong>. A dozen TL2 regions are built from more than one Economic Index
+          subregion, which is why 293 becomes 279 rather than staying flat.</p>
+
+          <p>Every step in that funnel is a data-availability constraint rather than a choice.
+          Nothing was excluded on the basis of its values, and the binding constraint throughout is
+          the <em>labour statistics</em>, not the usage data — the Economic Index covers far more of
+          the world than the OECD's regional employment series does. The one case where a country was
+          recovered by going elsewhere is the United States, where the OECD series lacks the required
+          industry detail and QCEW supplies it.</p>
+
+          <p><strong>Specification.</strong> The outcome is the computer-and-mathematical share of a
+          region's Claude usage, measured on raw un-normalized shares. The regressor is the region's
+          service employment share. Every specification includes country fixed effects, and the
+          preferred one adds log GDP per capita and the share of population with tertiary education.
+          Standard errors are clustered by country, with a wild cluster bootstrap on the key
+          coefficient.</p>
+
+          <h4>Defining the two key variables</h4>
+
+          <p><em>Service employment</em> follows the national-accounts convention: all employment
+          outside agriculture, mining, manufacturing, utilities and construction. For the 34 non-US
+          countries it comes from the OECD Regional Database's employment-by-activity series,
+          summing the NACE Rev. 2 service aggregates — trade, transport and hospitality; information
+          and communication; finance and insurance; real estate; professional and administrative
+          services; public administration, education and health; arts and other services — over
+          total regional employment. For US states it comes from the Bureau of Labor Statistics'
+          Quarterly Census of Employment and Wages, as service-providing employment over the
+          goods-plus-services total. A narrower variant restricted to information, finance and
+          professional services is discussed below, under <em>The narrower service measure</em>.</p>
+
+          <p><em>Computer-and-mathematical usage</em> is major group 15 of the US Standard
+          Occupational Classification — software development, systems analysis, data science,
+          statistics — as classified by the Economic Index. Because the Index reports each group as
+          a percentage of the region's total usage, this share is already independent of how much of
+          the region's data was disclosed, which is why no rescaling is applied to it.</p>
+
+          <p><em>The artifact-based measure</em> used as an independent check sums four of the
+          Index's 32 artifact-type shares — <code>code_fix_or_debug</code>,
+          <code>script_or_snippet</code>, <code>sql_or_database_query</code> and
+          <code>config_or_infra</code> — each reported as a percentage of a region's total usage.
+          Unlike the occupational data, artifact shares are published for all 652 subregions with
+          every category present and sum to 100 per region, so the measure carries no
+          disclosure-suppression structure whatsoever. It averages 9.3% of usage against the
+          occupational measure's 24.4%, and the two correlate at 0.65 within country.</p>
+
+          <table class="spec-table">
+            <thead>
+              <tr><th>Specification</th><th>Occupational</th><th>Artifact</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>+ country FE</td><td>−0.0748</td><td>−0.0764</td></tr>
+              <tr class="preferred"><td>+ log GDP p.c. and % tertiary</td><td>−0.0581</td><td>−0.0562</td></tr>
+              <tr><td>+ log usage volume</td><td>−0.0456</td><td>−0.0472</td></tr>
+            </tbody>
+          </table>
+
+          <p>Note that the volume control is unambiguously an over-control for the artifact measure,
+          since no disclosure channel exists for it to close. The estimate survives it regardless.</p>
+
+          <h4>The narrower service measure, and why it is a failure rather than a robustness check</h4>
+
+          <p>The variant mentioned above restricts services to information and communication, finance
+          and insurance, and professional, scientific, technical and administrative activities —
+          roughly the white-collar half of the sector, excluding retail, transport, hospitality,
+          health and education. In the preferred specification it gives <strong>−0.1041
+          (t = −4.56)</strong>, a <em>larger</em> estimate than the broad measure. It does not survive
+          the usage-volume control: <strong>−0.0250 (t = −0.93, p = 0.35)</strong>, against the broad
+          measure's −0.0456 (t = −3.31) under the same control. Knowledge-service regions are the
+          high-usage regions, and once volume is held fixed there is nothing left to attribute to the
+          narrower definition.</p>
+
+          <p>The two measures correlate at 0.75 within country — related, as they must be, but far
+          from interchangeable. So I report this as a failure rather than as a robustness check,
+          because that is what it is. What it establishes is narrow but real: the result is not an
+          artifact of the broad service category, since a genuinely different definition produces the
+          same sign and a within-country correlation with technical usage of −0.37, essentially
+          identical to the broad measure's −0.36. What it cannot establish is <em>which kind</em> of
+          service employment is responsible.</p>
+
+          <h4>The broader occupational aggregates</h4>
+
+          <p>The opening claim — that professional and managerial work is about three-quarters of
+          usage everywhere, and is unrelated to service employment — comes from the same occupational
+          data, aggregated to SOC major groups 11 through 29 and measured on raw un-normalized shares
+          for consistency with the headline outcome. It averages 74.9% of usage with a within-country
+          standard deviation of 2.2 percentage points, and its within-country correlation with
+          service employment is +0.10: effectively nothing. The computer-and-mathematical slice sits
+          inside that block, averages 24.4%, and correlates with service employment at −0.36 within
+          country. The contrast is not that the broader aggregate fails to vary — it varies more than
+          the technical slice in absolute terms — but that its variation has no relationship to how
+          service-heavy a region is.</p>
+
+          <p>A <a href="data-dictionary.html">full data dictionary</a> covering every variable, both
+          technically and in plain terms, is published alongside this piece.</p>
+
+          <h4>Robustness</h4>
+
+          <p>The estimate survives dropping the US; dropping Washington DC; dropping the five
+          highest-leverage regions (which strengthens it); estimating at the finer subregional grain
+          rather than TL2; a specification without the education control, which admits two additional
+          countries; and all 35 leave-one-country-out refits.</p>
+
+          <h4>On Japan</h4>
+
+          <p>Japan is absent for a mundane reason: the OECD's regional database reports total
+          employment for Japanese regions but not the industry breakdown this analysis needs, and
+          likewise carries no regional figures for educational attainment. Japanese usage data exists
+          in the Economic Index and maps cleanly to OECD regions — the gap is on the labour-statistics
+          side, and it is the same gap that required supplementing US states from a separate source.</p>
+
+          <h4>A note on one control</h4>
+
+          <p>Regional usage volume is a necessary control when measuring occupational breadth,
+          because the disclosure threshold operates directly on which occupation groups appear. It is
+          <em>not</em> obviously appropriate for the main result, where the outcome is always
+          reported and has no disclosure channel, and where region size is a real economic variable
+          correlated with service employment. Conditioning on it is arguably over-control. The
+          preferred specification therefore omits it; the volume-controlled version is reported as
+          robustness and the estimate survives it either way. I mention this because using different
+          specifications in different tables without explaining why is exactly the sort of thing a
+          reader should be suspicious of.</p>
+
+          <h4>Three notes on the standard errors</h4>
+
+          <p>All three were surfaced by the Stata replication.</p>
+
+          <p><em>Degrees of freedom.</em> The reported standard errors follow the dummy-variable
+          convention: country fixed effects are charged against the residual degrees of freedom.
+          Because those fixed effects are nested inside the clusters, some estimators — Stata's
+          widely used <code>reghdfe</code> among them — treat them as already accounted for by the
+          clustering and do not charge them. That convention gives a standard error about 7% smaller
+          and a t-statistic of −4.34 rather than −4.07. I report the larger, more conservative one.</p>
+
+          <p><em>The US-only row.</em> Every other row in the robustness table clusters standard
+          errors by country. The US-only specification cannot: with a single country there is one
+          cluster and the cluster-robust variance is undefined. That row uses
+          heteroskedasticity-robust standard errors instead.</p>
+
+          <p><em>The bootstrap p-value.</em> A wild cluster bootstrap p-value is a simulated
+          quantity, not a calculated one — it is the share of randomly drawn sign-flips more extreme
+          than the observed statistic, so its own sampling error is meaningful at small p. The
+          preferred specification gives <strong>p = 0.0024 with a Monte Carlo standard error of
+          0.0002</strong>, from 99,999 replications. An earlier run at ten times fewer replications
+          reported 0.0028, which turned out to be the high end of the simulation noise rather than a
+          different answer. I quote the Monte Carlo error alongside the p-value rather than implying
+          a precision the procedure doesn't deliver.</p>
+        </div>
+      </details>
+
+      <!-- APPENDIX B -->
+      <details class="appendix" id="appendix-b">
+        <summary>
+          <h3 class="appendix-name">Appendix B — Three attempts at breadth, and a robustness check that wasn't</h3>
+          How the privacy suppression works and how much support varies across regions; the direct
+          evidence that the disclosure threshold moves with usage volume; three separate attempts to
+          test the dilution story — Shannon entropy and the inverse Herfindahl,
+          partial-identification bounds and occupation counts, and a fixed-support design — and why
+          each failed; the argument of mine that looked like a robustness check and was actually
+          circular, with the contamination algebra written out; and why the same control that
+          flattens every breadth measure leaves the main finding standing.
+        </summary>
+        <div class="appendix-content">
+          <p><strong>The problem.</strong> To protect privacy, the Economic Index suppresses an
+          occupation category in a region when the underlying counts fall below a threshold. Support
+          therefore varies enormously: the median region reports 14 of the 22 occupational groups,
+          and only 11 of 279 report all 22. Farming appears in 11 regions, construction in 23.
+          Crucially, disclosure coverage is correlated with service employment, which is the
+          regressor of interest.</p>
+
+          <p>You can watch the threshold operate directly. The data covers two months, April and May
+          2026, over an identical set of regions. April contains 6,707 occupation-group observations;
+          May contains 8,509 — <strong>27% more categories clearing the disclosure bar in the second
+          month</strong>, from the same places. Nothing about the occupational structure of those
+          regions changed in four weeks. Usage grew, and more cells cleared the threshold. That is
+          the entire mechanism, visible in a row count.</p>
+
+          <h4>Attempt one: diversity indices</h4>
+
+          <p><em>Does a region's usage spread across more occupations as its service employment
+          rises?</em></p>
+
+          <p>Compute Shannon entropy, H = −Σᵢ pᵢ ln pᵢ, and the inverse Herfindahl–Hirschman index,
+          1 ⁄ Σᵢ pᵢ², over each region's reported occupational shares — Hill numbers of order 1 and
+          2. Every correlation came out with the predicted sign. Raw entropy also correlates with
+          disclosure coverage at 0.93, so it was largely measuring how much data a region
+          disclosed.</p>
+
+          <h4>Attempt two: bounds and counts</h4>
+
+          <p><em>If diversity can't be measured cleanly, can it at least be bracketed?</em></p>
+
+          <p>Rather than adjust for the withheld mass, bound it: entropy computed under the most and
+          least favourable assumptions about the hidden categories, which is partial identification
+          rather than imputation. The bounds came out roughly 60% as wide as the entire
+          cross-regional variation, so the sign follows from the assumption rather than from the
+          data. Separately, the count of occupations with detectable usage looked strongly related to
+          service employment until total usage volume entered the specification, at which point its
+          t-statistic fell from 9.1 to 0.2. That count was measuring the disclosure threshold.</p>
+
+          <h4>Attempt three: fixed support</h4>
+
+          <p><em>Compare only the occupations every region reports, so nothing can be hidden.</em></p>
+
+          <p>Five SOC major groups appear in all 293 subregions. Taking the four non-technical ones
+          as a share of all non-technical usage puts always-observed values in both the numerator and
+          the denominator, so coverage cancels exactly rather than approximately. The statistic is
+          built so that the null — the technical slice shrinks and everything else scales up in
+          proportion — produces an exactly flat line, and only a genuine leak toward the long tail
+          moves it. It was flat, in every specification that controls for volume.</p>
+
+          <h4>The robustness check that wasn't</h4>
+
+          <p><em>I had an argument for why the result could not be a data artifact. The argument was
+          wrong, and the way it was wrong is more instructive than the checks that passed.</em></p>
+
+          <p>Early on I argued that Hill-1 and Hill-2 agreeing was evidence against an artifact.
+          Hill-1 (entropy) is sensitive to rare categories; Hill-2 (the inverse Herfindahl) is
+          dominated by common ones. If suppression of small categories were driving the result, the
+          sensitive measure should move and the robust one should not. They agreed, so I took the
+          signal to be real.</p>
+
+          <p>The algebra says otherwise. Renormalizing by a region's disclosure coverage <em>C</em>
+          rescales every share by 1⁄<em>C</em>, and the two measures absorb that differently:</p>
+
+          <ul>
+            <li>entropy becomes H_renorm ≈ H_raw + ln <em>C</em> — contaminated
+            <strong>additively</strong></li>
+            <li>the inverse Herfindahl becomes <em>C</em>² ⁄ Σᵢ rᵢ² — contaminated
+            <strong>quadratically</strong></li>
+          </ul>
+
+          <p>The measure I had nominated as the robust one is the <em>more</em> coverage-exposed of
+          the two. They agreed because both were partly measuring the same thing: how much data the
+          region disclosed. Hill-2's robustness holds against missing tail <em>mass</em>, not against
+          the rescaling — a distinction I had not drawn, and one nothing in the data would have
+          forced me to draw. It took the bounds exercise in attempt two to expose it.</p>
+
+          <p>The lesson I took: a robustness check is only informative if you can state in advance
+          what would make it fail. I couldn't, and I had let a comfortable result stand on it for
+          longer than I should have.</p>
+
+          <h4>What made me trust the main result</h4>
+
+          <p>The same volume control that flattens every breadth measure leaves the technical-share
+          finding at close to full strength. If that control were a blunt instrument destroying any
+          relationship in the data, that asymmetry would not appear.</p>
+        </div>
+      </details>
+
+      <!-- APPENDIX C -->
+      <details class="appendix" id="appendix-c">
+        <summary>
+          <h3 class="appendix-name">Appendix C — One error, four disguises</h3>
+          The same missing-value mistake — "we don't know" quietly becoming "zero" — in four
+          different forms across Python and Stata: <code>sum</code> returning zero for an all-missing
+          row, <code>egen rowtotal</code> doing the same, the case where treating missing as zero is
+          actually correct and how to tell the difference, and Stata's rule that missing compares as
+          larger than any number. Plus why three of the eight verification bugs made a correct result
+          look wrong, which is the more dangerous direction.
+        </summary>
+        <div class="appendix-content">
+          <p>If this project has a single transferable lesson, it is about missing values. The same
+          conceptual mistake — letting "we don't know" quietly become "zero" — showed up four times,
+          in two languages, wearing a different costume each time. In every case it produces numbers
+          that look entirely plausible. Only the first one did any damage, and only because I caught
+          the others by having been burned by it.</p>
+
+          <h4>One. Summing nothing gives you zero</h4>
+
+          <p>In pandas, adding up a row where every value is missing returns 0.0, not "missing." My
+          employment data had rows where the industry breakdown was entirely absent. They summed to
+          zero, my code then picked the most recent year with a non-missing value, cheerfully
+          selected those fake zeros, and recorded that 29 countries had no service employment
+          whatsoever. The fix is one argument — <code>min_count=1</code> — that tells the sum to
+          return missing when it has nothing to add. It changed results for a third of the sample.</p>
+
+          <h4>Two. The same default, in another language</h4>
+
+          <p>Stata's <code>egen rowtotal</code> behaves identically. The Stata replication had to
+          average two monthly observations per occupation group, and the natural way to write that —
+          add the two months, divide by two — would have silently halved the value of every group
+          reported in only one of them. Roughly one cell in five is single-month, so about 20% of the
+          data would have been quietly wrong. Averaging in long form instead of wide form avoids it,
+          because that operation ignores absent rows rather than counting them as zero.</p>
+
+          <h4>Three. The direction of the sum decides whether zero is right</h4>
+
+          <p>This is the subtle one. Summing across <em>months</em> with missing-as-zero is wrong,
+          because a suppressed month is unobserved, not empty. Summing across <em>occupation
+          groups</em> with missing-as-zero is correct, because a suppressed group genuinely
+          contributes nothing to that region's reported total. Same operation, same default, opposite
+          verdicts — and nothing in either language warns you which case you're in.</p>
+
+          <h4>Four. In Stata, missing is larger than any number</h4>
+
+          <p>The verification code counted how many values exceeded a tolerance, using a comparison
+          that is <em>true</em> whenever the value is missing. It reported 593 failures on a column
+          whose largest real discrepancy was 0.000000000000000028. The only reason it wasn't believed
+          is that it contradicted itself: the maximum difference was orders of magnitude below the
+          tolerance while the failure count sat in the hundreds. Had the count been three instead of
+          593, it would have read as a genuine problem and sent me hunting through a clean build.</p>
+
+          <p>That last one generalises past missing values. Three of the eight bugs in the
+          verification code made a <em>correct</em> result look wrong — which is the more dangerous
+          direction, because the instinctive response is to go and "fix" something that was never
+          broken. All three were caught by internal contradiction rather than by the check itself. The
+          practical defence is to report several statistics per comparison — how many values were
+          compared, the largest absolute difference, the largest relative difference, how many
+          exceeded tolerance, whether the missingness patterns agree — instead of a single pass or
+          fail. A single verdict can only be believed. Five numbers can disagree with each other, and
+          that disagreement is what saves you.</p>
+        </div>
+      </details>
+
+      <div class="article-links">
+        <a href="data-dictionary.html" class="btn btn-outline">Full data dictionary</a>
+      </div>
+
+      <a href="../../index.html" class="back-link">← Back to the main site</a>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  &copy; 2026 Carlos Ignacio Navarro &nbsp;·&nbsp; Chasing signal through the noise — one dataset at a time.
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => links.classList.remove('open'))
+  );
+
+  // Opening a closed <details> when its anchor is followed from the jump block.
+  function openTarget() {
+    const el = document.querySelector(window.location.hash || '#none');
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  }
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data dictionary — AI usage and regional economies — Carlos Ignacio Navarro</title>
+  <meta name="description" content="Every variable used in the regional AI usage analysis, defined twice: once technically, once for a reader with no economics background." />
+  <meta name="author" content="Carlos Ignacio Navarro" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+
+  <!-- PHASE 5: replace every https://SITE_BASE/ below with the live URL. -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Carlos Ignacio Navarro" />
+  <meta property="og:title" content="Data dictionary — AI usage and regional economies" />
+  <meta property="og:description" content="Every variable used in the regional AI usage analysis, defined twice: once technically, once for a reader with no economics background." />
+  <meta property="og:url" content="https://SITE_BASE/research/ai-usage-regional-economies/data-dictionary.html" />
+  <meta property="og:image" content="https://SITE_BASE/photos/Carlos_NP_5_2.JPG" />
+  <meta property="og:image:alt" content="Carlos Ignacio Navarro" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <style>
+    /* Reference-page layout. Wider measure than the article, because the
+       tables carry four columns. Tokens and nav come from styles.css. */
+
+    .doc {
+      padding-top: 60px;
+      background: var(--bg-primary);
+    }
+
+    .measure {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .doc-head { padding: 4rem 0 2rem; }
+
+    .doc-kicker {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 0.9rem;
+    }
+
+    .doc-title {
+      font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .doc-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin-bottom: 1.75rem;
+    }
+
+    .doc-meta {
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(53, 117, 198, 0.18);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .doc-body { padding-bottom: 4rem; }
+
+    .doc-body h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 3rem 0 0.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(53, 117, 198, 0.18);
+    }
+
+    .doc-body h2:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+
+    .doc-body h3 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 2rem 0 0.6rem;
+    }
+
+    /* A minor h3: same level in the outline, smaller on the page. Used where
+       a label sits directly under an h2 and a real h4 would skip a level. */
+    .doc-body h3.minor {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .doc-body p {
+      font-size: 0.94rem;
+      line-height: 1.72;
+      color: var(--text-secondary);
+      margin-bottom: 1.05rem;
+      max-width: 780px;
+    }
+
+    .doc-body p strong { color: var(--text-primary); font-weight: 600; }
+    .doc-body a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 2px; }
+    .doc-body a:hover { color: var(--accent-dark); }
+
+    .doc-body ul, .doc-body ol {
+      margin: 0 0 1.15rem 1.15rem;
+      max-width: 780px;
+    }
+
+    .doc-body li {
+      font-size: 0.94rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 0.45rem;
+    }
+
+    code {
+      font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+      font-size: 0.85em;
+      background: rgba(53, 117, 198, 0.08);
+      border-radius: 3px;
+      padding: 0.1em 0.35em;
+    }
+
+    pre {
+      background: rgba(13, 33, 68, 0.05);
+      border: 1px solid rgba(53, 117, 198, 0.14);
+      border-radius: 6px;
+      padding: 0.9rem 1.1rem;
+      overflow-x: auto;
+      margin-bottom: 1.2rem;
+      max-width: 780px;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--text-primary);
+    }
+
+    /* ── TABLES ── */
+    .table-wrap { overflow-x: auto; margin: 0.5rem 0 1.5rem; }
+
+    table.dd {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(53, 117, 198, 0.14);
+      border-radius: 6px;
+    }
+
+    table.dd th, table.dd td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.65rem 0.8rem;
+      border-bottom: 1px solid rgba(53, 117, 198, 0.12);
+      line-height: 1.55;
+    }
+
+    table.dd thead th {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      white-space: nowrap;
+    }
+
+    table.dd td { color: var(--text-secondary); }
+    table.dd tbody tr:last-child td { border-bottom: 0; }
+    table.dd td:first-child { white-space: nowrap; }
+    table.dd td strong { color: var(--text-primary); }
+
+    .callout {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(53, 117, 198, 0.16);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 1.1rem 1.35rem;
+      margin: 0 0 1.5rem;
+      max-width: 780px;
+    }
+
+    .callout p { margin-bottom: 0.7rem; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    .back-link {
+      display: inline-block;
+      padding-bottom: 3rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .back-link:hover { color: var(--accent-dark); }
+
+    @media (max-width: 700px) {
+      .measure { padding: 0 1.5rem; }
+      .doc-head { padding: 3rem 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="../../index.html">CIN</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="../../index.html#about">About</a></li>
+    <li><a href="../../index.html#experience">Experience</a></li>
+    <li><a href="../../index.html#skills">Skills</a></li>
+    <li><a href="index.html">Research</a></li>
+    <li><a href="../../index.html#publications">Publications</a></li>
+    <li><a href="../../index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main class="doc">
+
+  <header class="doc-head measure">
+    <p class="doc-kicker">Reference · companion to the article</p>
+    <h1 class="doc-title">Data dictionary</h1>
+    <p class="doc-sub">
+      Every variable used in <a href="index.html">More service jobs, less technical AI use — a
+      subnational look</a>, defined twice: once technically, once for a reader with no economics
+      background.
+    </p>
+    <div class="doc-meta">Last updated 31 July 2026 · Carlos Ignacio Navarro</div>
+  </header>
+
+  <div class="doc-body measure">
+
+    <div class="callout">
+      <p><strong>How to read this.</strong> Section 1 is the analysis dataset — the 17 columns that
+      actually enter the results. Section 2 explains the five constructed measures in depth, because
+      those are where the interpretation lives. Sections 3–6 document the source data each was built
+      from. Section 7 lists the definitional wrinkles worth knowing about.</p>
+    </div>
+
+    <h2>1. The analysis frame</h2>
+
+    <p><strong>One row per OECD TL2 region. 279 rows × 17 columns, 35 countries.</strong> Built by
+    collapsing 293 Economic Index subregions up to their parent TL2 region, weighted by usage.</p>
+
+    <div class="table-wrap">
+      <table class="dd">
+        <thead>
+          <tr><th>Column</th><th>Unit</th><th>Technical definition</th><th>In plain terms</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>tl2_code</code></td><td>string</td><td>OECD Territorial Level 2 code, TL2024 vintage (e.g. <code>US11</code>, <code>ES51</code>, <code>FR1</code>)</td><td>The region's ID. One row per region.</td></tr>
+          <tr><td><code>country</code></td><td>string</td><td>ISO 3166-1 alpha-2, taken from the subregion code prefix</td><td>Which country the region is in.</td></tr>
+          <tr><td><code>n_sub</code></td><td>count</td><td>Number of subregions collapsed into this TL2</td><td>How many smaller administrative areas were merged. Usually 1; 12 regions are built from more than one.</td></tr>
+          <tr><td><code>usage_wt</code></td><td>percent</td><td>Sum of <code>usage_pct</code> across constituent subregions</td><td>How much of its country's Claude usage this region accounts for.</td></tr>
+          <tr><td><code>log_vol</code></td><td>log percent</td><td><code>ln(usage_wt)</code></td><td>The same thing on a log scale, so a big region and a small one can be compared proportionally. The disclosure-volume control.</td></tr>
+          <tr><td><strong><code>comp_math_raw</code></strong></td><td>pp of usage</td><td>Usage-weighted mean of the <strong>raw, un-renormalized</strong> SOC major group 15 (Computer and Mathematical) <code>pct</code></td><td><strong>The outcome.</strong> Of everything people in this region do with Claude, the share that is computing and mathematical work.</td></tr>
+          <tr><td><code>comp_math_renorm</code></td><td>pp</td><td>Same, but from shares rescaled so a region's reported groups sum to 100</td><td>A diagnostic version of the above. Not used in any published estimate.</td></tr>
+          <tr><td><code>b4_mass</code></td><td>pp of usage</td><td>Usage-weighted sum of the raw <code>pct</code> of the four non-technical universally-reported groups</td><td>How much of a region's usage sits in office/admin, sales, education and arts work combined.</td></tr>
+          <tr><td><code>b4_of_nontech</code></td><td>percent</td><td><code>b4_mass / (100 − comp_math_raw) × 100</code></td><td>Of the <em>non</em>-technical usage in a region, how much sits in those four big occupational families. Built so that "the technical slice shrank and everything else grew proportionally" gives an exactly flat line.</td></tr>
+          <tr><td><code>soc_pct_sum_raw</code></td><td>percent</td><td>Usage-weighted mean of each subregion's pre-renormalization occupational total</td><td>How much of a region's usage the data actually discloses by occupation. Median ≈ 95%; the rest is suppressed for privacy.</td></tr>
+          <tr><td><strong><code>service_share</code></strong></td><td>% of employment</td><td>Share of regional employment in service activities — see §2.1</td><td><strong>The main regressor.</strong> How much of the region's workforce is in services rather than farming, factories or construction.</td></tr>
+          <tr><td><code>knowledge_service_share</code></td><td>% of employment</td><td>Share in ICT, finance and professional/administrative services — see §2.2</td><td>A narrower version: only the "knowledge economy" slice of services.</td></tr>
+          <tr><td><code>gdp_pc_ppp</code></td><td>USD, PPP</td><td>Regional GDP per capita, constant prices, PPP-adjusted</td><td>How rich the region is per person, adjusted so currencies and price levels are comparable.</td></tr>
+          <tr><td><code>pct_tertiary</code></td><td>percent</td><td>Share of population with ISCED 2011 levels 5–8</td><td>Share of people with a university-level qualification.</td></tr>
+          <tr><td><code>pop</code></td><td>persons</td><td>Regional population</td><td>How many people live there.</td></tr>
+          <tr><td><code>pop_density</code></td><td>persons/km²</td><td>Population per square kilometre</td><td>How crowded it is.</td></tr>
+          <tr><td><code>gdp_pc_rel</code></td><td>ratio</td><td>Regional GDP per capita relative to its national average</td><td>Whether the region is richer or poorer than its own country's average. 1.0 = exactly average.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Created later, not stored in the CSV:</strong> <code>log_gdp_pc</code> =
+    <code>ln(gdp_pc_ppp)</code>. Used in every controlled specification.</p>
+
+    <h2>2. The constructed measures, explained</h2>
+
+    <h3>2.1 <code>service_share</code> — the main regressor</h3>
+
+    <p><strong>What counts as a service.</strong> Everything that is not agriculture, extraction,
+    manufacturing, utilities or construction. This is the standard national-accounts definition, and
+    it is <strong>much broader than "office work."</strong> A supermarket cashier, a bus driver, a
+    nurse, a schoolteacher, a hotel cleaner and an investment banker are all in the service sector.</p>
+
+    <p><strong>Non-US regions (34 countries)</strong> — OECD Regional Database, dataflow
+    <code>DSD_REG_ECO@DF_EMP</code> ("Employment by main economic activity – Regions"), territorial
+    level TL2, classified by NACE Rev. 2 activity aggregates:</p>
+
+    <pre><code>service_share = (G-I + J + K + L + M_N + O-Q + R-U) / _T × 100</code></pre>
+
+    <div class="table-wrap">
+      <table class="dd">
+        <thead><tr><th>Code</th><th>Activities</th></tr></thead>
+        <tbody>
+          <tr><td><code>G-I</code></td><td>wholesale and retail trade; transport and storage; accommodation and food service</td></tr>
+          <tr><td><code>J</code></td><td>information and communication</td></tr>
+          <tr><td><code>K</code></td><td>financial and insurance activities</td></tr>
+          <tr><td><code>L</code></td><td>real estate activities</td></tr>
+          <tr><td><code>M_N</code></td><td>professional, scientific and technical; administrative and support services</td></tr>
+          <tr><td><code>O-Q</code></td><td>public administration and defence; education; human health and social work</td></tr>
+          <tr><td><code>R-U</code></td><td>arts, entertainment and recreation; other services; household and extraterritorial activities</td></tr>
+          <tr><td><code>_T</code></td><td>total employment (the denominator)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Excluded</strong> — and therefore <em>not</em> services: <code>A</code> agriculture,
+    forestry and fishing; <code>B-E</code> mining, manufacturing, electricity and gas, water and
+    waste; <code>F</code> construction.</p>
+
+    <p><strong>US states (51 regions)</strong> — BLS Quarterly Census of Employment and Wages,
+    using <code>annual_avg_emplvl</code>:</p>
+
+    <pre><code>service_share = emp(102) / (emp(101) + emp(102)) × 100
+  at agglvl_code == 52, summed over own_code ∈ {1,2,3,5}</code></pre>
+
+    <p>where <code>101</code> is goods-producing and <code>102</code> is service-providing. Ownership
+    codes 1, 2, 3 and 5 are federal, state and local government plus private industry.
+    <code>agglvl_code</code> <strong>must</strong> be pinned: selecting industry codes without
+    pinning the aggregation tier mixes levels and picks up suppressed detail rows, which manufactured
+    a false result in an early build. At tier 52 the only industry codes that exist are 101 and 102,
+    so pinning the tier performs the industry selection.</p>
+
+    <p><em>In plain terms:</em> take everyone employed in the region, work out how many are in
+    service industries rather than making or growing physical things, and express it as a percentage.
+    Regions run from about 37% to 97.5%.</p>
+
+    <h3>2.2 <code>knowledge_service_share</code> — the narrower regressor</h3>
+
+    <p><strong>Non-US:</strong> <code>(J + K + M_N) / _T × 100</code> — information and
+    communication, finance and insurance, professional/scientific/technical and administrative
+    services.</p>
+
+    <p><strong>US:</strong> at <code>agglvl_code == 53</code> (supersector tier),
+    <code>(1022 + 1023 + 1024)</code> over all supersectors excluding <code>1029</code> —
+    information, financial activities, and professional and business services, over the total
+    excluding unclassified.</p>
+
+    <p><em>In plain terms:</em> the white-collar, information-heavy slice of the service sector.
+    Excludes retail, transport, hospitality, health and education.</p>
+
+    <div class="callout">
+      <p><strong>Status: a documented failure.</strong> It looked like the stronger regressor in
+      early exploratory work, but it collapses once regional usage volume is controlled for
+      (t = −0.93, p = 0.354), because knowledge-service regions <em>are</em> the high-usage regions.
+      <code>service_share</code> is the primary regressor. Kept as a reported negative result.</p>
+    </div>
+
+    <h3>2.3 <code>comp_math_raw</code> — the outcome</h3>
+
+    <p>The Economic Index classifies each conversation into one of the 22 major groups of the US
+    Standard Occupational Classification. Major group 15 is <strong>Computer and Mathematical
+    Occupations</strong> — software development, systems analysis, data science, statistics,
+    actuarial work.</p>
+
+    <p>The <code>pct</code> metric is "percentage of the geography's total in this category node," so
+    SOC 15's raw <code>pct</code> is already the share of <em>all</em> of a region's Claude usage
+    that is computing and mathematical work. <strong>No rescaling is applied</strong>, which is what
+    makes it independent of how much of the region's data was disclosed.</p>
+
+    <p>At TL2 level it is the usage-weighted mean across constituent subregions — which, because the
+    weights are usage shares, is exactly the aggregate share for the combined region.</p>
+
+    <p><em>In plain terms:</em> out of everything people in this region ask Claude to do, this is the
+    percentage that is technical or computing work. Sample mean 24.4%, ranging from about 19% to
+    32%.</p>
+
+    <p><strong>Why "raw" rather than the renormalized version.</strong> The renormalized shares divide
+    by each region's disclosure coverage, and coverage correlates with service employment. That
+    rescaling would drag the outcome in the same direction as the finding, mechanically. Removing it
+    shrank the estimate by about 20% — the finding survived, but on the raw measure it is not open to
+    that objection.</p>
+
+    <h3>2.4 <code>b4_of_nontech</code> — the breadth test</h3>
+
+    <p>The four occupational groups reported in <em>every</em> region — office and administrative
+    support, sales, educational instruction, and arts/media — as a share of all non-technical
+    usage.</p>
+
+    <p>Constructed so the null hypothesis is exactly flat: if the technical slice shrinks and
+    everything else expands in proportion, this number does not move. It falls only if usage
+    genuinely leaks toward the long tail of smaller occupations. Because both its numerator and
+    denominator are always-observed raw values, disclosure coverage cancels out entirely.</p>
+
+    <p><strong>Result: flat.</strong> No support for the breadth hypothesis. See
+    <a href="index.html#appendix-b">Appendix B</a> of the article.</p>
+
+    <h3>2.5 <code>log_vol</code> — the disclosure-volume control</h3>
+
+    <p><code>ln</code> of the region's summed <code>usage_pct</code>.</p>
+
+    <p><strong>An important subtlety.</strong> For subregions, <code>usage_pct</code> is measured
+    <em>relative to the parent country</em>, not globally. So <code>usage_wt</code> is a region's
+    share of its own country's usage, and <code>log_vol</code> is the log of that share — which is
+    <strong>not comparable in levels across countries</strong>.</p>
+
+    <p>This is harmless here, and provably so. Since
+    <code>ln(usage_i) = ln(share_i) + ln(country total)</code>, and the country total is constant
+    within a country, the difference is absorbed entirely by the country fixed effects that every
+    specification using <code>log_vol</code> includes. Within a country, <code>log_vol</code> is
+    exactly equivalent to log absolute usage up to a constant.</p>
+
+    <p><em>Why it exists:</em> the Economic Index suppresses an occupation category when the
+    underlying conversation count is too small. Bigger regions clear that threshold in more categories
+    and therefore <em>look</em> more occupationally diverse for reasons that have nothing to do with
+    AI diffusion. Controlling for volume closes that channel.</p>
+
+    <h3>2.6 <code>tech_core</code> and <code>tech_broad</code> — the independent technical measure</h3>
+
+    <p>A second measure of technical usage, built from the <strong>artifact</strong> classification
+    rather than the occupational one.</p>
+
+    <pre><code>tech_core  = artifact_code_fix_or_debug_pct + artifact_script_or_snippet_pct
+           + artifact_sql_or_database_query_pct + artifact_config_or_infra_pct
+tech_broad = tech_core + artifact_app_or_website_pct + artifact_ml_or_ai_system_pct</code></pre>
+
+    <p><strong>Why it is genuinely independent of <code>comp_math_raw</code>:</strong></p>
+
+    <ol>
+      <li><em>Different question.</em> <code>comp_math_raw</code> asks which occupation a task
+      belongs to. The artifact measure asks what the conversation produced. A marketer writing a SQL
+      query is technical by artifact but not by occupation; an engineer asking for career advice is
+      the reverse.</li>
+      <li><em>No suppression.</em> Artifact shares come from the <code>overall</code> category, which
+      is published for <strong>all 652 subregions with every one of the 32 labels present</strong>,
+      summing to 100.00 per region (observed range 99.95–100.05). There is no disclosure threshold, no
+      varying support, no coverage variable, and no need for a volume control. Every methodological
+      complication in this project came from the occupational data's suppression, and none of it
+      applies here.</li>
+      <li><em>Complete denominator.</em> Artifact shares cover all usage; occupational shares cover a
+      median of 13 of 22 groups.</li>
+    </ol>
+
+    <p><strong>Result — the two agree.</strong> Preferred specification: <code>tech_core</code> gives
+    −0.0562 (t = −3.53) against <code>comp_math_raw</code>'s −0.0581 (t = −4.07). In within-country
+    standard deviations, −1.48 against −1.27 — the independent measure is slightly stronger.
+    Correlation between the measures is +0.857 pooled, <strong>+0.652 within country</strong>: close
+    enough to be tracking a common construct, far enough apart that the agreement is not circular.
+    Means differ as expected — 24.4% of usage is occupationally technical, 9.3% actually produces
+    code.</p>
+
+    <p><strong>Limitation.</strong> These are two classifications of the <em>same conversations</em>,
+    not two independent datasets. The check rules out artifacts of the occupational taxonomy and of
+    the disclosure structure — which is what was in doubt — but not something common to the underlying
+    sample or classifier.</p>
+
+    <h2>3. Source — Anthropic Economic Index, Release 6</h2>
+
+    <p>Claude.ai consumer usage (Free, Pro, Max), released CC-BY. Two monthly windows: 2026-04-01 and
+    2026-05-01, <code>date_end</code> exclusive.</p>
+
+    <div class="table-wrap">
+      <table class="dd">
+        <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><code>date_start</code> / <code>date_end</code></td><td>Collection period. End is exclusive.</td></tr>
+          <tr><td><code>geo_id</code></td><td><code>GLOBAL</code>, an ISO 3166-1 <strong>alpha-3</strong> country code, or an ISO 3166-2 <strong>subregion</strong> code (e.g. <code>US-GA</code>, <code>JP-01</code>).</td></tr>
+          <tr><td><code>geo_level</code></td><td><code>global</code>, <code>country</code>, or <code>subregion</code>.</td></tr>
+          <tr><td><code>category_name</code></td><td>Analysis dimension: <code>overall</code>, <code>onet</code>, <code>request</code>, <code>soc_occupation</code>.</td></tr>
+          <tr><td><code>hierarchy_level</code></td><td>Depth within the category. <strong>0 is most granular.</strong> For <code>soc_occupation</code>, 0 = detailed occupation, <strong>1 = major group</strong> (the 22 we use).</td></tr>
+          <tr><td><code>metric_id</code></td><td>Which metric this row reports.</td></tr>
+          <tr><td><code>value</code></td><td>The number, rounded to two decimals.</td></tr>
+          <tr><td><code>node_name</code></td><td>The specific entity — e.g. "Computer and Mathematical".</td></tr>
+          <tr><td><code>node_external_id</code></td><td>Source identifier — O*NET element ID, SOC code, or request-topic UUID.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="minor">Metrics used</h3>
+
+    <div class="table-wrap">
+      <table class="dd">
+        <thead><tr><th>Metric</th><th>Definition</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td><code>pct</code></td><td>Percentage of the geography's total in this category node</td><td>The occupational shares. Denominator is <em>all</em> the region's usage.</td></tr>
+          <tr><td><code>usage_pct</code></td><td>Percentage of total usage relative to the <strong>parent geography</strong> — global for countries, <strong>parent country for subregions</strong></td><td>Used as collapse weight and as the volume control. See §2.5.</td></tr>
+          <tr><td><code>usage_per_capita_index</code></td><td>Usage share ÷ working-age (15–64) population share. 1.0 = proportional to population</td><td><strong>Countries and US states only.</strong> Its absence elsewhere is why this project measures composition, not intensity.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>Disclosure.</strong> "A cell is only published if it meets both the aggregation
+      thresholds and the geography sample floor." <strong>A missing row means the cell was not
+      published, not that the value is zero.</strong> This single sentence drives the entire
+      methodology: it is why absent groups must never be read as zeros, why support varies from 5 to
+      22 groups across regions, and why every breadth measure had to be tested against a volume
+      control.</p>
+    </div>
+
+    <p><strong>Filtering rule.</strong> Topline figures must be filtered to
+    <code>category_name == "overall"</code>. Metrics repeat across category trees and hierarchy
+    levels; unfiltered sums double-count and produce meaningless multiples.</p>
+
+    <h2>4. Source — OECD Regional Database</h2>
+
+    <p>Accessed via the SDMX REST API at <code>sdmx.oecd.org</code>, agency
+    <code>OECD.CFE.EDS</code>, territorial levels <code>CTRY</code> + <code>TL2</code>, keyed on
+    <code>ref_area</code> (OECD TL2 code).</p>
+
+    <div class="table-wrap">
+      <table class="dd">
+        <thead><tr><th>Dataflow</th><th>Provides</th></tr></thead>
+        <tbody>
+          <tr><td><code>DSD_REG_ECO@DF_EMP</code></td><td>employment by main economic activity (→ <code>service_share</code>, <code>knowledge_service_share</code>, <code>emp_total</code>)</td></tr>
+          <tr><td><code>DSD_REG_ECO@DF_ECO</code></td><td>GDP and labour productivity (→ <code>gdp_pc_ppp</code>, <code>lab_prod_ppp</code>, <code>gdp_pc_rel</code>)</td></tr>
+          <tr><td><code>DSD_REG_DEMO@DF_DEMO</code></td><td>population (→ <code>pop</code>, <code>pop_density</code>)</td></tr>
+          <tr><td><code>DSD_REG_EDU@DF_EDU</code></td><td>educational attainment (→ <code>pct_tertiary</code>, using <code>ISCED11_5T8</code>)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="minor">Cleaning rules that matter</h3>
+
+    <ul>
+      <li><code>TERRITORIAL_TYPE</code> → keep <code>_Z</code> only. Otherwise urban/rural/metro typologies double-count regions.</li>
+      <li><code>PRICES</code> → keep <code>Q</code> (constant prices), for both GDP and labour productivity.</li>
+      <li><code>EDUCATION_LEV</code> → use <code>ISCED11_5T8</code> (tertiary total), not its sub-levels.</li>
+      <li>Region-year panel collapsed to <strong>latest non-null year</strong> per variable.</li>
+      <li>Activity aggregates are nested (<code>C</code> ⊂ <code>B-E</code>), so the service sum must use the top-level aggregates listed in §2.1, never a mix of levels.</li>
+    </ul>
+
+    <p><strong>Fetch note.</strong> <code>pd.read_csv(url)</code> returns HTTP 403 — OECD blocks the
+    Python urllib user-agent. Use <code>requests</code> with a browser UA and
+    <code>Accept: application/vnd.sdmx.data+csv; labels=both</code>.</p>
+
+    <p><strong>Coverage gap.</strong> The regional database reports total employment for Japanese
+    regions but no industry breakdown, and no regional educational attainment. Japan is therefore
+    absent from the analysis despite the Economic Index covering 33 Japanese subregions that crosswalk
+    cleanly to 11 TL2 regions.</p>
+
+    <p><strong>Six residual pseudo-regions</strong> — <code>ATZZ</code>, <code>BEZZ</code>,
+    <code>ESZZ</code>, <code>FIZZ</code>, <code>PTZZ</code>, <code>SEZZ</code> — carry
+    <code>service_share</code> of exactly 100.0 with no GDP. No region maps to them and the
+    completeness rule excludes them, but any future frame rule keyed on <code>service_share</code>
+    alone would admit them as 100%-service regions.</p>
+
+    <h2>5. Source — BLS Quarterly Census of Employment and Wages</h2>
+
+    <p>Used only to supply US state employment shares, because the OECD regional series does not cover
+    US states at the required industry detail.</p>
+
+    <div class="table-wrap">
+      <table class="dd">
+        <thead><tr><th>Field</th><th>Meaning</th><th>How used</th></tr></thead>
+        <tbody>
+          <tr><td><code>area_fips</code></td><td>5-character FIPS area code</td><td>States end in <code>000</code> (but not <code>US000</code>, which is national). Keyed to OECD as <code>"US" + area_fips[:2]</code>.</td></tr>
+          <tr><td><code>own_code</code></td><td>Ownership: 1 federal, 2 state, 3 local, 5 private</td><td>Summed over {1,2,3,5}. Codes 0 and 8 are aggregates and don't appear at these tiers.</td></tr>
+          <tr><td><code>industry_code</code></td><td>NAICS or supersector code</td><td><code>101</code>/<code>102</code> at tier 52; <code>1011</code>–<code>1029</code> at tier 53.</td></tr>
+          <tr><td><code>agglvl_code</code></td><td>Aggregation tier</td><td><strong>52</strong> = domain (goods vs services); <strong>53</strong> = supersector. Must be pinned.</td></tr>
+          <tr><td><code>annual_avg_emplvl</code></td><td>Annual average of monthly employment levels</td><td>The employment measure.</td></tr>
+          <tr><td><code>disclosure_code</code></td><td>Blank, or <code>N</code> = not disclosed</td><td>Suppressed cells appear as employment 0 with <code>N</code>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Why the share survives suppression.</strong> It is self-normalising: a suppressed
+    ownership row contributes zero to both numerator and denominator and cancels out.</p>
+
+    <p><em>In plain terms:</em> QCEW is a near-census of jobs covered by unemployment insurance —
+    roughly 95% of US employment. It counts jobs where the work is located, not where the worker
+    lives.</p>
+
+    <h2>6. Crosswalk</h2>
+
+    <p>Maps Economic Index subregion codes to OECD regions. 433 mapped subregions.</p>
+
+    <div class="table-wrap">
+      <table class="dd">
+        <thead><tr><th>Column</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><code>geo_id</code></td><td>Subregion code (ISO 3166-2)</td></tr>
+          <tr><td><code>country</code></td><td>ISO 3166-1 alpha-2</td></tr>
+          <tr><td><code>iso_name</code></td><td>Region name from <code>pycountry</code></td></tr>
+          <tr><td><code>tl2_code</code></td><td>OECD TL2 code — the merge key</td></tr>
+          <tr><td><code>match_type</code></td><td><code>exact</code>, <code>aggregate</code> (several regions → one TL2), or <code>manual</code></td></tr>
+          <tr><td><code>score</code></td><td>Fuzzy-match score</td></tr>
+          <tr><td><code>in_frame</code></td><td>Whether the region is in the analytic set</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Built from the OECD Territorial Correspondence Table (TL2024), fuzzy-matched on both English
+    and local-language region names, with 11 manual corrections and 6 drops, then hand-verified.
+    Portugal's districts and Ireland's provinces are best-fit approximations that do not nest
+    perfectly.</p>
+
+    <h2>7. Definitional wrinkles worth knowing</h2>
+
+    <ol>
+      <li><strong>US and OECD service shares are not identical constructs.</strong> QCEW covers
+      employment insured against unemployment — it excludes the self-employed and most farm work — so
+      US service shares sit systematically above OECD's. Country fixed effects absorb the level
+      difference; only within-US variation is used.</li>
+      <li><strong>US "financial activities" is broader than OECD "K".</strong> Supersector
+      <code>1023</code> bundles NAICS 52 (finance and insurance) with 53 (real estate and leasing),
+      while OECD keeps real estate separate in <code>L</code>. Both fall inside
+      <code>service_share</code> either way; the difference only affects
+      <code>knowledge_service_share</code>.</li>
+      <li><strong>"100% covariate completeness"</strong> in the <code>in_frame</code> rule means the
+      <em>analysis</em> covariates — <code>gdp_pc_ppp</code>, <code>service_share</code>,
+      <code>pct_tertiary</code>, <code>pop</code> — not every column. <code>emp_total</code> is
+      excluded. Exactly one observation (<code>US-AK</code>) distinguishes the two readings.</li>
+      <li><strong><code>comp_math_renorm</code> and <code>b4_of_nontech</code> use opposite
+      aggregation orders</strong> (weighted mean of ratios vs ratio of weighted means). Affects only
+      the 12 multi-subregion TL2s, max relative difference 4.2e-3, and neither enters a published
+      estimate. <code>comp_math_raw</code> is a simple mass and is identical under either order.</li>
+      <li><strong>Occupational support is not fixed at 22 groups.</strong> The median subregion
+      reports 13 of 22; only 11 of 279 TL2 regions report all 22. Column layout and realized support
+      are different things.</li>
+      <li><strong>Two months, not one.</strong> All metrics are averaged across April and May 2026
+      over <em>present observations only</em>. A group reported in one month keeps that month's value
+      rather than being halved. April carries 6,707 level-1 occupation rows against May's 8,509 — 27%
+      more categories clearing disclosure in the second month, over an identical set of regions.</li>
+    </ol>
+
+    <h2>Appendix — the master dataset</h2>
+
+    <p><strong>652 rows × 73 columns</strong>, one row per subregion. This is the merge layer; the
+    analysis frame is derived from it. Only 12 of these 73 columns enter the published analysis — the
+    rest are carried for transparency and future work.</p>
+
+    <p><strong>Composition:</strong> 1 key + 52 Economic Index metrics + 4 crosswalk + 10 covariates +
+    6 occupation-derived = 73.</p>
+
+    <h3>Task characteristics (7)</h3>
+
+    <div class="table-wrap">
+      <table class="dd">
+        <thead><tr><th>Column</th><th>Definition</th><th>In plain terms</th></tr></thead>
+        <tbody>
+          <tr><td><code>multitasking_pct</code></td><td>% of conversations involving more than one distinct task</td><td>How often people ask for several things at once.</td></tr>
+          <tr><td><code>human_only_ability_pct</code></td><td>% where a human could have done the task without AI</td><td>How much of the work wasn't strictly dependent on AI.</td></tr>
+          <tr><td><code>ai_autonomy_mean</code></td><td>Mean AI autonomy in task completion, 1–5</td><td>How much Claude was left to get on with it.</td></tr>
+          <tr><td><code>ai_education_years_mean</code></td><td>Mean equivalent years of education Claude demonstrated</td><td>How advanced the work Claude did was, in schooling-year terms.</td></tr>
+          <tr><td><code>human_education_years_mean</code></td><td>Mean years of human education the task would require</td><td>How advanced the work was for a person.</td></tr>
+          <tr><td><code>human_only_time_mean</code></td><td>Mean hours for a human to do it unaided</td><td>How long it would have taken without AI.</td></tr>
+          <tr><td><code>human_with_ai_time_mean</code></td><td>Mean minutes for a human to do it with AI</td><td>How long it took with AI. Note the unit change — hours above, minutes here.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Collaboration mode (8)</h3>
+
+    <div class="table-wrap">
+      <table class="dd">
+        <thead><tr><th>Column</th><th>In plain terms</th></tr></thead>
+        <tbody>
+          <tr><td><code>collaboration_bucket_automation_pct</code></td><td>Claude did the task.</td></tr>
+          <tr><td><code>collaboration_bucket_augmentation_pct</code></td><td>Claude helped the person do the task.</td></tr>
+          <tr><td><code>collaboration_directive_pct</code></td><td>One instruction, one output.</td></tr>
+          <tr><td><code>collaboration_feedback_loop_pct</code></td><td>Back-and-forth refinement.</td></tr>
+          <tr><td><code>collaboration_task_iteration_pct</code></td><td>Repeated passes over the same task.</td></tr>
+          <tr><td><code>collaboration_learning_pct</code></td><td>The person was trying to understand something.</td></tr>
+          <tr><td><code>collaboration_validation_pct</code></td><td>The person was checking their own work.</td></tr>
+          <tr><td><code>collaboration_none_pct</code></td><td>No pattern assigned.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Use case (3)</strong> — <code>use_case_work_pct</code>,
+    <code>use_case_personal_pct</code>, <code>use_case_coursework_pct</code>. Share of conversations
+    classified as work, personal or coursework.</p>
+
+    <h3>Artifact type (32)</h3>
+
+    <p><code>artifact_{label}_pct</code>, the share of conversations whose most prominent concrete
+    output was that kind of thing. <em>In plain terms:</em> what people ended up with — a document, a
+    chart, a bug fix, a recipe. Labels: <code>academic_paper_or_thesis</code>,
+    <code>advice_or_recommendation</code>, <code>analysis_or_summary</code>,
+    <code>app_or_website</code>, <code>audio_or_music</code>, <code>blog_or_article</code>,
+    <code>chart_or_visualization</code>, <code>code_fix_or_debug</code>, <code>config_or_infra</code>,
+    <code>creative_writing</code>, <code>data_or_spreadsheet</code>, <code>document_or_report</code>,
+    <code>educational_material</code>, <code>email_or_message</code>,
+    <code>explanation_or_answer</code>, <code>game_or_interactive</code>,
+    <code>idea_or_brainstorm</code>, <code>image_or_graphic</code>,
+    <code>marketing_or_social_content</code>, <code>math_or_calculation</code>,
+    <code>ml_or_ai_system</code>, <code>none</code>, <code>other</code>,
+    <code>plan_or_strategy</code>, <code>presentation_or_slides</code>,
+    <code>recipe_or_meal_plan</code>, <code>resume_or_job_application</code>,
+    <code>script_or_snippet</code>, <code>sql_or_database_query</code>, <code>translation</code>,
+    <code>ui_or_design_mockup</code>, <code>video_or_animation</code>.</p>
+
+    <h3>Occupation-derived columns (6)</h3>
+
+    <div class="table-wrap">
+      <table class="dd">
+        <thead><tr><th>Column</th><th>Definition</th><th>In plain terms</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>comp_math_share</code></td><td>Renormalized SOC 15 share</td><td>Technical share of usage, rescaled so reported groups sum to 100</td><td>Superseded by <code>comp_math_raw</code>, rebuilt from this by multiplying back through <code>soc_pct_sum_raw</code></td></tr>
+          <tr><td><code>prof_core_share</code></td><td>Renormalized SOC 11+13+15</td><td>Management + business/finance + computing</td><td><strong>Not used</strong> — collapses to −0.139 once renormalization is removed. Largely a rescaling artifact.</td></tr>
+          <tr><td><code>white_collar_share</code></td><td>Renormalized SOC 11–29</td><td>All professional and managerial occupations</td><td><strong>Not used</strong> — near-ceiling at ~80% with a coefficient of variation of 0.03. Almost no variation to explain.</td></tr>
+          <tr><td><code>soc_pct_sum_raw</code></td><td>Pre-renormalization occupational total</td><td>How much of the region's usage is disclosed by occupation. Median ≈ 95%.</td><td><strong>Used.</strong></td></tr>
+          <tr><td><code>soc_n_groups</code></td><td>Distinct SOC major groups reported</td><td>How many of the 22 occupation families show up at all. Min 5, median 13.</td><td>Diagnostic.</td></tr>
+          <tr><td><code>soc_covered</code></td><td>Whether occupation data exists for this subregion</td><td>True for 609 of 652.</td><td><strong>Used</strong> as a filter.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>The 12 columns that actually enter the analysis</h3>
+
+    <p><code>geo_id</code>, <code>tl2_code</code>, <code>country</code>, <code>in_frame</code>,
+    <code>usage_pct</code>, <code>service_share</code>, <code>knowledge_service_share</code>,
+    <code>gdp_pc_ppp</code>, <code>pct_tertiary</code>, <code>pop</code>,
+    <code>soc_pct_sum_raw</code>, <code>soc_covered</code> — plus <code>comp_math_share</code>, which
+    is used only as the input from which <code>comp_math_raw</code> is reconstructed. Everything else
+    is carried for transparency or parked for future work.</p>
+
+    <a href="index.html" class="back-link">← Back to the article</a>
+
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 Carlos Ignacio Navarro &nbsp;·&nbsp; Chasing signal through the noise — one dataset at a time.
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => links.classList.remove('open'))
+  );
+</script>
+
+</body>
+</html>

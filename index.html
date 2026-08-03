@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlos Ignacio Navarro — Economist &amp; Data Scientist</title>
+  <meta name="description" content="Economist and data scientist in Austin, Texas. Economic measurement and policy analysis across labour markets, criminal justice, higher education and the space economy — with original research on regional AI usage." />
+  <meta name="author" content="Carlos Ignacio Navarro" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- PHASE 5: replace every https://SITE_BASE/ below with the live URL,
+       e.g. https://yourname.github.io/carlos-navarro/ — these must be
+       absolute or link previews will not render. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Carlos Ignacio Navarro" />
+  <meta property="og:title" content="Carlos Ignacio Navarro — Economist &amp; Data Scientist" />
+  <meta property="og:description" content="Economic measurement and policy analysis across labour markets, criminal justice, higher education and the space economy — with original research on regional AI usage." />
+  <meta property="og:url" content="https://SITE_BASE/" />
+  <meta property="og:image" content="https://SITE_BASE/photos/Carlos_NP_5_2.JPG" />
+  <meta property="og:image:alt" content="Carlos Ignacio Navarro" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Landing-page layout only. Tokens, nav, section headers, buttons, pills
+       and the footer live in styles.css, which loads immediately above. */
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      padding-top: 60px;
+      background:
+        radial-gradient(ellipse at 70% 40%, rgba(53, 117, 198, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(200, 216, 238, 0.6) 0%, transparent 50%),
+        var(--bg-primary);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .hero-name span { color: var(--accent-dark); }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── FEATURED RESEARCH ──
+       Sits between the hero and About. Deliberately shallow padding so it
+       reads as a band, not a full section. Whole card is one link. */
+    #featured { padding: 3.25rem 0; background: var(--bg-primary); }
+
+    .feature-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(53, 117, 198, 0.18);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 1.75rem;
+      text-decoration: none;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(53, 117, 198, 0.45);
+      border-left-color: var(--accent-dark);
+      box-shadow: 0 4px 18px rgba(13, 33, 68, 0.07);
+      transform: translateY(-2px);
+    }
+
+    .feature-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-finding {
+      font-size: 1.02rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-scope {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.85rem;
+    }
+
+    .feature-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .feature-chips .hero-tag { font-size: 0.72rem; padding: 0.22rem 0.7rem; }
+
+    .feature-cta {
+      flex-shrink: 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+      white-space: nowrap;
+    }
+
+    .feature-card:hover .feature-cta { color: var(--accent-dark); }
+    .feature-cta .arrow { transition: transform 0.2s; display: inline-block; }
+    .feature-card:hover .feature-cta .arrow { transform: translateX(3px); }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg-secondary); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-body p {
+      color: var(--text-secondary);
+      margin-bottom: 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    .about-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .about-photo {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .headshot {
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 6px;
+      border: 1px solid rgba(53, 117, 198, 0.15);
+      box-shadow: 0 4px 20px rgba(13, 33, 68, 0.08);
+    }
+
+    .fact-card {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(53, 117, 198, 0.15);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.1rem 1.3rem;
+      padding-left: 1.1rem;
+    }
+
+    .fact-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .fact-value {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      font-weight: 400;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg-primary); }
+
+    .timeline { position: relative; padding-left: 1.5rem; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 6px; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(53, 117, 198, 0.6) 40%,
+        rgba(53, 117, 198, 0.8) 60%,
+        transparent 100%
+      );
+      animation: riverflow 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes riverflow {
+      0%   { top: -80px; opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 1.75rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid #EEF3FA;
+      box-shadow: 0 0 0 3px rgba(53, 117, 198, 0.15);
+    }
+
+    .timeline-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-role {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.1rem;
+    }
+
+    .timeline-org {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-body {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .timeline-body ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline-body ul li {
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-body ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent-dark);
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--bg-secondary); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-group {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(53, 117, 198, 0.12);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .skill-group-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 1rem;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    /* ── STORY ── */
+    #story { background: var(--bg-primary); }
+
+    /* ── PUBLICATIONS ── */
+    #publications { background: var(--bg-primary); }
+
+    .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .pub-card {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(53, 117, 198, 0.12);
+      border-left: 3px solid #3575C6;
+      border-radius: 0 6px 6px 0;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .pub-type {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-meta {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.6rem;
+    }
+
+    .pub-abstract {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Pinned card for research hosted on this site. */
+    .pub-card-link {
+      display: block;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.72);
+      border-left-width: 4px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .pub-card-link:hover {
+      border-color: rgba(53, 117, 198, 0.4);
+      border-left-color: var(--accent-dark);
+      box-shadow: 0 4px 18px rgba(13, 33, 68, 0.07);
+      transform: translateY(-2px);
+    }
+
+    .pub-readmore { color: var(--accent-dark); font-weight: 600; }
+    .pub-card-link:hover .pub-readmore { color: var(--accent-dark); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg-secondary); }
+
+    .contact-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-inner .section-divider { margin: 1rem auto 2.5rem; }
+
+    .contact-tagline {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      border: 1px solid rgba(53, 117, 198, 0.25);
+      border-radius: 4px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent-dark);
+      color: var(--accent-dark);
+    }
+
+    .contact-link svg {
+      width: 16px; height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ── RESPONSIVE ──
+       The about grid stacks at 900px, not 700px: three columns inside a
+       704px container gave each one about 180px, which crushed the fact
+       cards and shrank the headshot well below its intended size. */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-photo { order: -1; }
+      .headshot { max-width: 240px; }
+    }
+
+    @media (max-width: 700px) {
+      .headshot { max-width: 200px; }
+
+      .feature-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.1rem;
+        padding: 1.35rem 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="#hero">CIN</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="research/ai-usage-regional-economies/index.html">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Economist &amp; Data Scientist</p>
+    <h1 class="hero-name">Carlos Ignacio<br><span>Navarro</span></h1>
+    <p class="hero-tagline">
+      Building measurement where the data doesn't cooperate.
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">Applied Economics</span>
+      <span class="hero-tag">Causal Inference</span>
+      <span class="hero-tag">Python · SQL · Stata</span>
+      <span class="hero-tag">Tableau</span>
+      <span class="hero-tag">Policy Analysis</span>
+      <span class="hero-tag">Agentic AI Research</span>
+      <span class="hero-tag">Bilingual EN/ES</span>
+    </div>
+    <div class="hero-cta">
+      <a href="research/ai-usage-regional-economies/index.html" class="btn btn-primary">Read the Research</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURED RESEARCH ── -->
+<section id="featured">
+  <div class="container">
+    <a class="feature-card" href="research/ai-usage-regional-economies/index.html">
+      <div class="feature-main">
+        <p class="feature-label">Featured research</p>
+        <p class="feature-finding">
+          Within countries, regions with more service employment use AI for proportionally
+          <em>less</em> technical work — the opposite of the obvious guess.
+        </p>
+        <p class="feature-scope">
+          279 OECD regions across 35 countries · Anthropic's Economic Index paired with OECD
+          regional employment statistics
+        </p>
+        <div class="feature-chips">
+          <span class="hero-tag">AI Usage</span>
+          <span class="hero-tag">Regional Employment</span>
+          <span class="hero-tag">OECD Data</span>
+          <span class="hero-tag">Subnational Analysis</span>
+        </div>
+      </div>
+      <div class="feature-cta">Read the piece <span class="arrow">→</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>
+          I grew up in Rio Bravo, Tamaulipas — across the Rio Grande from Donna, TX,
+          in the heart of the Rio Grande Valley. Growing up on the border meant growing
+          up bilingual, bicultural, and fluent in navigating between worlds. That instinct
+          for context — who the data affects, where people actually live — has shaped
+          every research project I've touched since.
+        </p>
+        <p>
+          My career traces a deliberate arc from the border outward. I started in
+          cross-border logistics at TRANCASA, then interned with the Economic Policy
+          Institute in Silicon Valley, studying post-recession recovery for low-income
+          families. At the Bush School I received the U.S. Congress–George H.W. Bush
+          Fellowship and delivered a comparative security analysis to U.S. Southern
+          Command. That researcher identity deepened at PERC (Texas A&amp;M), where I
+          built economic indices, co-authored a peer-reviewed study on Medicaid and
+          recidivism, and directed a COVID-19 business impact survey. At Texas 2036
+          I translated complex data into legislative recommendations on workforce and
+          criminal justice. Since January 2025 I've served as Data Scientist at the
+          Texas Space Commission, engineering the state's first space workforce index.
+        </p>
+        <p>
+          I bring to big tech a combination that's genuinely rare: rigorous econometric
+          training, production-grade data science skills (Python, SQL, Stata, ML), and
+          a decade of translating ambiguous, high-stakes problems into decisions that
+          moved policy. I work across sectors, communicate fluently to both technical
+          and executive audiences, and carry a bilingual, international perspective
+          built into everything I do. I'm looking for a team where measurement,
+          causal thinking, and real-world impact are taken seriously.
+        </p>
+      </div>
+      <div class="about-photo">
+        <img src="photos/Carlos_NP_5_2.JPG"
+             alt="Carlos Ignacio Navarro"
+             class="headshot" />
+      </div>
+      <div class="about-facts">
+        <div class="fact-card">
+          <div class="fact-label">Education</div>
+          <div class="fact-value">Master of International Affairs<br>Bush School of Government and Public Service, Texas A&amp;M University<br><small style="color:var(--accent-dark)">U.S. Congress–George H.W. Bush Fellowship recipient</small></div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Education</div>
+          <div class="fact-value">BA in Economics<br>University of Texas Pan American</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Origin</div>
+          <div class="fact-value">Rio Bravo, Tamaulipas, Mexico<br><small style="color:var(--text-secondary)">US–Mexico border · Dual citizen</small></div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-label">Languages</div>
+          <div class="fact-value">English (native) · Spanish (native)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Career</p>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-divider"></div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-date">January 2025 – Present</div>
+        <div class="timeline-role">Data Scientist</div>
+        <div class="timeline-org">Texas Space Commission · Austin, TX</div>
+        <div class="timeline-body">
+          <ul>
+            <li>Engineered the Texas Space Workforce Index — the state's first high-fidelity economic indicator for the commercial space sector — validating 40% workforce growth since 2015 and quantifying a $132K average space wage premium (1.8× the state average).</li>
+            <li>Designed the agency's foundational data pipelines and authored internal governance directives, successfully harmonizing conflicting state security standards (TAC 202) with federal research ethics (Common Rule) to enable compliant survey research.</li>
+            <li>Serves as quantitative lead and trusted advisor to executive leadership and federal partners, translating aerospace supply-chain analysis into actionable investment strategy and legislative testimony.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">August 2022 – January 2025</div>
+        <div class="timeline-role">Data Analyst, Strategic Initiatives</div>
+        <div class="timeline-org">Texas 2036 · Austin, TX</div>
+        <div class="timeline-body">
+          <ul>
+            <li>Applied K-means clustering (Python / Scikit-Learn) to segment state labor markets across thousands of institutions, producing workforce forecasts that reshaped the organization's legislative funding priorities.</li>
+            <li>Led the Texas Energy Scenario Planner project end-to-end, coordinating between research contractors, visualization vendors, and internal stakeholders to deliver a high-visibility public dashboard on time.</li>
+            <li>Co-authored <em>Opening Doors: The State of Higher Education in Texas Prisons</em> (Texas 2036, 2024), a policy report showing a $1.61 return per $1 spent on prison college programs and recommending statewide reforms to expand access.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">March 2018 – April 2022</div>
+        <div class="timeline-role">Senior Research Associate</div>
+        <div class="timeline-org">Private Enterprise Research Center, Texas A&amp;M University · College Station, TX</div>
+        <div class="timeline-body">
+          <ul>
+            <li>Co-authored "The Effect of Public Health Insurance on Criminal Recidivism," published in the <em>Journal of Policy Analysis and Management</em> (2021) — used Medicaid expansion variation and individual-level NCRP prisoner data to establish causal reductions in violent and public-order recidivism.</li>
+            <li>Built the College Station-Bryan Economic Index from scratch, devising a sales-tax proxy for retail activity when official monthly data was unavailable; the index became a widely-cited regular publication for local business leaders and policymakers.</li>
+            <li>Directed the COVID-19 Business Impact Survey — executed rapid data collection, cleaning, and analysis under crisis timelines to provide situational awareness to municipal leaders during the pandemic.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">2016</div>
+        <div class="timeline-role">Transfer Pricing Intern</div>
+        <div class="timeline-org">Texas A&amp;M University School of Law · Fort Worth, TX</div>
+        <div class="timeline-body">
+          <ul>
+            <li>Analyzed the EU Commission's challenge to the Netherlands–Starbucks Advanced Pricing Agreement using the Transactional Net Margin Method and Orbis / Bureau van Dijk financial data.</li>
+            <li>Co-authored "The Value Chain: A Study of the Coffee Industry," a chapter in <em>A Practical Guide to US Transfer Pricing</em> (LexisNexis), with William Byrnes and Nima Khodakarami.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">2013</div>
+        <div class="timeline-role">Research Intern (EARN Fellow)</div>
+        <div class="timeline-org">Working Partnerships USA / Economic Policy Institute · San Jose, CA</div>
+        <div class="timeline-body">
+          <ul>
+            <li>Collected and analyzed economic indicators for the <em>Life in the Valley Economy</em> biannual report, investigating post-recession recovery for low- and middle-income families in Silicon Valley.</li>
+            <li>Gave public testimony at a San Jose city hall meeting on regional housing conditions; findings contributed to the <em>Economic Prosperity Strategy</em>, prescribing industry-driven vocational training to match employer demand.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Pre-2013</div>
+        <div class="timeline-role">Operations Assistant</div>
+        <div class="timeline-org">TRANCASA (Transportes Canales SA de CV) · Rio Bravo, Tamaulipas, Mexico</div>
+        <div class="timeline-body">
+          <ul>
+            <li>Developed the company's first Import-Export Procedures manual, documenting the end-to-end cross-border shipment process from client intake to driver return.</li>
+            <li>Served on the internal C-TPAT (Customs-Trade Partnership Against Terrorism) board, managing annual certification renewals; maintained logistics inventory and traffic data using SICET.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Toolkit</p>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-divider"></div>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <div class="skill-group-title">Languages &amp; Query</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Stata</span>
+          <span class="skill-pill">MATLAB</span>
+          <span class="skill-pill">R</span>
+          <span class="skill-pill">Gretl</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">AI &amp; Emerging Tools</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Agentic AI</span>
+          <span class="skill-pill">LLM Integration</span>
+          <span class="skill-pill">AI-Assisted Research</span>
+          <span class="skill-pill">Prompt Engineering</span>
+          <span class="skill-pill">Claude API</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">ML &amp; Econometrics</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Scikit-Learn</span>
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill">K-Means Clustering</span>
+          <span class="skill-pill">Causal Inference</span>
+          <span class="skill-pill">Diff-in-Diff</span>
+          <span class="skill-pill">Regression Analysis</span>
+          <span class="skill-pill">Forecasting</span>
+          <span class="skill-pill">Dynamic Factor Models</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Data &amp; Visualization</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Tableau Cloud</span>
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">MS Excel</span>
+          <span class="skill-pill">DataFerrett</span>
+          <span class="skill-pill">Orbis / Bureau van Dijk</span>
+          <span class="skill-pill">SICET</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Governance &amp; Compliance</div>
+        <div class="skill-pills">
+          <span class="skill-pill">IRB &amp; Research Ethics</span>
+          <span class="skill-pill">Data Privacy (PII/SPI)</span>
+          <span class="skill-pill">TX-RAMP</span>
+          <span class="skill-pill">TAC 202</span>
+          <span class="skill-pill">Common Rule (45 CFR 46)</span>
+          <span class="skill-pill">Policy Drafting</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Domain Expertise</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Labor Economics</span>
+          <span class="skill-pill">Criminal Justice Economics</span>
+          <span class="skill-pill">Space Economy</span>
+          <span class="skill-pill">Transfer Pricing</span>
+          <span class="skill-pill">Development Economics</span>
+          <span class="skill-pill">Public Policy Analysis</span>
+          <span class="skill-pill">Game Theory</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Communication &amp; Leadership</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Bilingual (EN/ES)</span>
+          <span class="skill-pill">Technical Writing</span>
+          <span class="skill-pill">Stakeholder Management</span>
+          <span class="skill-pill">Legislative Testimony</span>
+          <span class="skill-pill">Cross-functional Collaboration</span>
+          <span class="skill-pill">LLM Integration</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── STORY ── -->
+<section id="story">
+  <div class="container">
+    <p class="section-label">At a glance</p>
+    <h2 class="section-title">The Story in Data</h2>
+    <div class="section-divider"></div>
+
+    <style>
+    .ig { background: #ffffff; border-radius: 8px; border: 0.5px solid rgba(53,117,198,0.12); overflow: hidden; }
+    .ig-head { padding: 16px 20px 14px; border-bottom: 0.5px solid rgba(53,117,198,0.12); display: flex; justify-content: space-between; align-items: flex-end; }
+    .ig-head-name { font-size: 16px; font-weight: 500; color: #0D2144; }
+    .ig-head-sub { font-size: 12px; color: #4A5F7A; margin-top: 2px; }
+    .ig-head-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #1E4A8A; }
+    .ig-sec-lbl { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #4A5F7A; margin-bottom: 12px; }
+    .ig-journey { padding: 16px 20px 14px; background: #EEF3FA; border-bottom: 0.5px solid rgba(53,117,198,0.12); }
+    .stops-wrap { position: relative; }
+    .stops-line { position: absolute; top: 9px; left: 10px; right: 10px; height: 1px; background: rgba(53,117,198,0.25); }
+    .ig-stops { display: flex; }
+    .ig-stop { flex: 1; display: flex; flex-direction: column; align-items: center; }
+    .ig-stop-dot { width: 18px; height: 18px; border-radius: 50%; background: #ffffff; border: 1.5px solid #3575C6; display: flex; align-items: center; justify-content: center; z-index: 1; }
+    .ig-stop-dot-fill { width: 7px; height: 7px; border-radius: 50%; background: #3575C6; }
+    .ig-stop.now .ig-stop-dot { background: #3575C6; }
+    .ig-stop.now .ig-stop-dot-fill { background: #ffffff; border: 1.5px solid #3575C6; width: 8px; height: 8px; border-radius: 50%; }
+    .ig-stop-city { font-size: 11px; font-weight: 500; color: #0D2144; margin-top: 6px; text-align: center; line-height: 1.3; }
+    .ig-stop.now .ig-stop-city { color: #1E4A8A; }
+    .ig-stop-yr { font-size: 10px; color: #4A5F7A; text-align: center; margin-top: 1px; }
+    .ig-stop-role { font-size: 10px; color: #4A5F7A; text-align: center; line-height: 1.3; margin-top: 2px; max-width: 90px; }
+    .ig-lower { display: grid; grid-template-columns: 1fr 1fr; }
+    .ig-nums { padding: 14px 20px; border-right: 0.5px solid rgba(53,117,198,0.12); }
+    .ig-nums-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .ig-num-card { background: #EEF3FA; border-radius: 6px; padding: 8px 10px; }
+    .ig-num-val { font-size: 22px; font-weight: 500; color: #1E4A8A; line-height: 1; }
+    .ig-num-lbl { font-size: 10px; color: #4A5F7A; margin-top: 3px; line-height: 1.3; }
+    .ig-domains { padding: 14px 20px; }
+    .ig-d-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+    .ig-d-tag { font-size: 11px; font-weight: 500; padding: 4px 9px; border-radius: 6px; }
+    .ig-d-econ { background: rgba(53,117,198,0.08); color: #0C447C; }
+    .ig-d-policy { background: rgba(42,138,120,0.08); color: #0D3028; }
+    .ig-d-data { background: rgba(186,117,23,0.08); color: #633806; }
+    .ig-d-ai { background: rgba(80,0,0,0.07); color: #500000; }
+    .ig-certs-row { display: flex; flex-wrap: wrap; gap: 4px; }
+    .ig-cert { font-size: 10px; color: #4A5F7A; border: 0.5px solid rgba(53,117,198,0.25); border-radius: 3px; padding: 2px 6px; }
+    .ig-foot { padding: 8px 20px; background: #EEF3FA; border-top: 0.5px solid rgba(53,117,198,0.12); display: flex; justify-content: space-between; align-items: center; }
+    .ig-foot-txt { font-size: 10px; color: #4A5F7A; }
+    .ig-langs { display: flex; gap: 6px; }
+    .ig-lang { font-size: 10px; font-weight: 500; color: #1E4A8A; background: rgba(53,117,198,0.08); padding: 2px 7px; border-radius: 3px; }
+
+    /* Six career stops in a single flex row collapse to unreadable slivers
+       on a phone. Wrap them 3-up and drop the connecting line, which can't
+       span wrapped rows anyway. */
+    @media (max-width: 700px) {
+      .stops-line { display: none; }
+      .ig-stops { flex-wrap: wrap; row-gap: 14px; }
+      .ig-stop { flex: 0 0 33.333%; }
+      .ig-lower { grid-template-columns: 1fr; }
+      .ig-nums { border-right: 0; border-bottom: 0.5px solid rgba(53,117,198,0.12); }
+      .ig-foot { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+    </style>
+
+    <div class="ig">
+
+      <div class="ig-head">
+        <div>
+          <div class="ig-head-name">Carlos Ignacio Navarro</div>
+          <div class="ig-head-sub">Research economist · Data scientist · AI-augmented</div>
+        </div>
+        <div class="ig-head-tag">The story in data</div>
+      </div>
+
+      <div class="ig-journey">
+        <div class="ig-sec-lbl">Career journey</div>
+        <div class="stops-wrap">
+          <div class="stops-line"></div>
+          <div class="ig-stops">
+            <div class="ig-stop">
+              <div class="ig-stop-dot"><div class="ig-stop-dot-fill"></div></div>
+              <div class="ig-stop-city">Rio Bravo, MX</div>
+              <div class="ig-stop-yr">2010</div>
+              <div class="ig-stop-role">Origin · logistics & trade ops</div>
+            </div>
+            <div class="ig-stop">
+              <div class="ig-stop-dot"><div class="ig-stop-dot-fill"></div></div>
+              <div class="ig-stop-city">Edinburg, TX</div>
+              <div class="ig-stop-yr">2009–2015</div>
+              <div class="ig-stop-role">UTPA · BA Econ, cum Laude</div>
+            </div>
+            <div class="ig-stop">
+              <div class="ig-stop-dot"><div class="ig-stop-dot-fill"></div></div>
+              <div class="ig-stop-city">San Jose, CA</div>
+              <div class="ig-stop-yr">2013</div>
+              <div class="ig-stop-role">EPI · Silicon Valley policy research</div>
+            </div>
+            <div class="ig-stop">
+              <div class="ig-stop-dot"><div class="ig-stop-dot-fill"></div></div>
+              <div class="ig-stop-city">College Station, TX</div>
+              <div class="ig-stop-yr">2015–2022</div>
+              <div class="ig-stop-role">Bush School MIA · Fellowship · PERC</div>
+            </div>
+            <div class="ig-stop">
+              <div class="ig-stop-dot"><div class="ig-stop-dot-fill"></div></div>
+              <div class="ig-stop-city">Fort Worth, TX</div>
+              <div class="ig-stop-yr">2016</div>
+              <div class="ig-stop-role">TAMU Law · transfer pricing</div>
+            </div>
+            <div class="ig-stop now">
+              <div class="ig-stop-dot"><div class="ig-stop-dot-fill"></div></div>
+              <div class="ig-stop-city">Austin, TX</div>
+              <div class="ig-stop-yr">2022–now</div>
+              <div class="ig-stop-role">Texas 2036 · Space Commission</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ig-lower">
+        <div class="ig-nums">
+          <div class="ig-sec-lbl">By the numbers</div>
+          <div class="ig-nums-grid">
+            <div class="ig-num-card">
+              <div class="ig-num-val">13+</div>
+              <div class="ig-num-lbl">years of research experience</div>
+            </div>
+            <div class="ig-num-card">
+              <div class="ig-num-val">40+</div>
+              <div class="ig-num-lbl">publications, reports & studies</div>
+            </div>
+            <div class="ig-num-card">
+              <div class="ig-num-val">6</div>
+              <div class="ig-num-lbl">distinct sectors worked in</div>
+            </div>
+            <div class="ig-num-card">
+              <div class="ig-num-val">2</div>
+              <div class="ig-num-lbl">countries of citizenship</div>
+            </div>
+            <div class="ig-num-card">
+              <div class="ig-num-val">1</div>
+              <div class="ig-num-lbl">peer-reviewed journal (JPAM)</div>
+            </div>
+            <div class="ig-num-card">
+              <div class="ig-num-val">6</div>
+              <div class="ig-num-lbl">professional certifications</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ig-domains">
+          <div class="ig-sec-lbl">Domains & certifications</div>
+          <div class="ig-d-tags">
+            <span class="ig-d-tag ig-d-econ">Applied economics</span>
+            <span class="ig-d-tag ig-d-policy">Public policy</span>
+            <span class="ig-d-tag ig-d-data">Data science</span>
+            <span class="ig-d-tag ig-d-ai">Agentic AI research</span>
+            <span class="ig-d-tag ig-d-econ">Causal inference</span>
+            <span class="ig-d-tag ig-d-policy">Legislative analysis</span>
+            <span class="ig-d-tag ig-d-data">Data governance</span>
+            <span class="ig-d-tag ig-d-econ">International affairs</span>
+          </div>
+          <div class="ig-sec-lbl" style="margin-top:10px; margin-bottom:5px;">Certifications</div>
+          <div class="ig-certs-row">
+            <span class="ig-cert">Space Policy</span>
+            <span class="ig-cert">AI & ML · UT McCombs</span>
+            <span class="ig-cert">Python Foundations</span>
+            <span class="ig-cert">UX Research</span>
+            <span class="ig-cert">Problem Solving</span>
+            <span class="ig-cert">Agentic AI Foundations: Business Risks and Applications · Harvard Online</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ig-foot">
+        <div class="ig-foot-txt">
+          Dual citizen · US & Mexico · U.S. Congress–George H.W. Bush Fellowship recipient
+        </div>
+        <div class="ig-langs">
+          <span class="ig-lang">EN</span>
+          <span class="ig-lang">ES</span>
+          <span class="ig-lang">JA</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PUBLICATIONS ── -->
+<section id="publications">
+  <div class="container">
+    <p class="section-label">Scholarship</p>
+    <h2 class="section-title">Publications</h2>
+    <div class="section-divider"></div>
+    <div class="pub-list">
+
+      <a class="pub-card pub-card-link" href="research/ai-usage-regional-economies/index.html">
+        <div class="pub-type">Independent Research · New</div>
+        <div class="pub-title">More service jobs, less technical AI use — a subnational look</div>
+        <div class="pub-meta">Carlos Ignacio Navarro · August 2026 · <span class="pub-readmore">Read on this site →</span></div>
+        <div class="pub-abstract">
+          Pairs Anthropic's Economic Index with OECD regional employment statistics across 279
+          regions in 35 countries. Within countries, regions with more service employment show a
+          lower share of AI usage going to technical work — the reverse of the intuitive mapping
+          from industry mix to technical AI use. Survives country fixed effects, 35
+          leave-one-country-out refits, a wild cluster bootstrap, an independent replication in
+          Stata, and a second usage measure built from a different classification scheme.
+        </div>
+      </a>
+
+      <div class="pub-card">
+        <div class="pub-type">Peer-Reviewed</div>
+        <div class="pub-title">The Effect of Public Health Insurance on Criminal Recidivism</div>
+        <div class="pub-meta">Erkmen G. Aslim, Murat C. Mungan, Carlos I. Navarro, Han Yu · <em>Journal of Policy Analysis and Management</em> · 2021</div>
+        <div class="pub-abstract">
+          Exploits variation in state Medicaid expansion decisions — and individual-level National Corrections Reporting Program data — to establish that access to public health insurance causally reduces recidivism among offenders convicted of violent and public-order crimes, driven by increased criminal-justice referrals to addiction treatment.
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-type">Book Chapter</div>
+        <div class="pub-title">The Value Chain: A Study of the Coffee Industry</div>
+        <div class="pub-meta">William H. Byrnes, Nima Khodakarami, Carlos Navarro Perez · <em>A Practical Guide to US Transfer Pricing</em>, LexisNexis</div>
+        <div class="pub-abstract">
+          A transfer pricing case study applying the Transactional Net Margin Method to a hypothetical specialty coffee roaster in Europe, tracing the full supply and value chain from cultivation to consumer and identifying comparable parties using Orbis financial data.
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-type">Policy Report</div>
+        <div class="pub-title">Opening Doors: The State of Higher Education in Texas Prisons</div>
+        <div class="pub-meta">Luis Soberon &amp; Carlos Ignacio Navarro · Texas 2036 · November 2024</div>
+        <div class="pub-abstract">
+          Finds that participation in prison college programs reduces recidivism by up to 41.5% and yields a $1.61 return per $1 spent; recommends governance reforms, expanded community college access, and integrated data systems to scale higher education across TDCJ facilities.
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-type">Working Paper</div>
+        <div class="pub-title">Methodology for Constructing an Economic Index for the College Station-Bryan MSA</div>
+        <div class="pub-meta">Dennis W. Jansen, Carlos I. Navarro, Andrew J. Rettenmaier, Tatevik Sekhposyan · Private Enterprise Research Center, Texas A&amp;M University · October 2018</div>
+        <div class="pub-abstract">
+          Presents the dynamic factor model methodology and data sources used to build a monthly coincident business-cycle index for the College Station-Bryan metropolitan area, using sales-tax collections as a proxy for retail activity when official monthly GDP data is unavailable.
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-type">Policy Report</div>
+        <div class="pub-title">Pandemic Misery Index: Economic and Health Implications of COVID-19</div>
+        <div class="pub-meta">Erkmen G. Aslim &amp; Carlos I. Navarro · <em>Seidman Business Review</em>, Vol. 27, Issue 1 · Winter 2021</div>
+        <div class="pub-abstract">
+          Adapts the Pandemic Misery Index — combining unemployment rates with COVID-19 deaths per 10,000 — to Michigan MSAs, finding wide regional variation (PMI range: 11.82–26.09) and identifying policy effectiveness in managing simultaneous economic and public health burdens.
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-type">Blog Post</div>
+        <div class="pub-title">Aerospace Employment Remains on Ascent Post Pandemic</div>
+        <div class="pub-meta">Carlos Ignacio Navarro · Texas 2036 · August 2023</div>
+        <div class="pub-abstract">
+          Documents Texas aerospace industry employment reaching an all-time high of 154,918 jobs by end of 2022, with Texans holding roughly one in ten space industry jobs nationwide as the sector recovers and the Legislature commits $350M to the new Texas Space Commission.
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-type">Blog Post</div>
+        <div class="pub-title">Data: Texas Draws Richer Individuals from Other States</div>
+        <div class="pub-meta">Carlos Ignacio Navarro · Texas 2036 · September 2023</div>
+        <div class="pub-abstract">
+          Uses IRS address-change data across Commuting Zones to show that out-of-state movers to Texas have higher average incomes than within-state movers, with the largest flows suggesting Texas is an especially attractive destination for wealthy households.
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-type">Blog Post</div>
+        <div class="pub-title">Teacher Wages and Projected Growth: What to Know</div>
+        <div class="pub-meta">Carlos Ignacio Navarro · Texas 2036 · April 2023</div>
+        <div class="pub-abstract">
+          Draws on Texas Workforce Commission occupational projections to show that four of the ten fastest-growing bachelor's-degree occupations in Texas are in teaching — yet all four rank among the lowest-paid in that same cohort.
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-type">Blog Post</div>
+        <div class="pub-title">Jobs and Wages: Projections from Now Until 2030</div>
+        <div class="pub-meta">Carlos Ignacio Navarro · Texas 2036 · February 2023</div>
+        <div class="pub-abstract">
+          Examines TWC projections showing 18.3% Texas employment growth through 2030 — more than double the national rate — while highlighting a persistent $4,000 average wage gap relative to the US and a decade-long concentration of growth in low-wage jobs.
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-type">Blog Post</div>
+        <div class="pub-title">TX's Labor Market and the Price of Recovery: Strategic Framework</div>
+        <div class="pub-meta">Carlos Ignacio Navarro · Texas 2036 · December 2022</div>
+        <div class="pub-abstract">
+          Analyzes the tightest Texas labor market in a decade — unemployment fell from a 12.6% pandemic peak to 4% by September 2022 — examining the economic cost of recovery and the structural dynamics behind persistently more job openings than unemployed workers.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-divider"></div>
+      <p class="contact-tagline">
+        Open to roles in data science, applied economics, and policy analytics —
+        especially at organizations working at scale. Feel free to reach out.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:ci.navarrop@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+          ci.navarrop@gmail.com
+        </a>
+        <a href="mailto:carlos.navarroperez@space.texas.gov" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+          carlos.navarroperez@space.texas.gov
+        </a>
+        <a href="https://www.linkedin.com/in/cinavarro/" target="_blank" rel="noopener" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM9 17H6.5v-7H9v7zm-1.25-8a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zM18 17h-2.5v-3.5c0-1-.02-2.3-1.4-2.3-1.4 0-1.6 1.1-1.6 2.2V17H10v-7h2.4v1h.03a2.6 2.6 0 0 1 2.37-1.3c2.53 0 3 1.66 3 3.82V17z"/></svg>
+          LinkedIn
+        </a>
+        <!-- PHASE 5: restore once the GitHub account exists and swap in the handle.
+        <a href="https://github.com/YOUR-HANDLE" target="_blank" rel="noopener" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          GitHub
+        </a>
+        -->
+      </div>
+      <!-- FINAL STEP: restore once the one-page resume PDF is in site\ and named here.
+      <a href="CarlosNavarro_Resume.pdf" class="btn btn-primary" download>Download Resume (PDF)</a>
+      -->
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Carlos Ignacio Navarro &nbsp;·&nbsp; Chasing signal through the noise — one dataset at a time.
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => links.classList.remove('open'))
+  );
+</script>
+
+</body>
+</html>
