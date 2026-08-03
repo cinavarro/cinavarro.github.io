@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carlos Ignacio Navarro — Economist &amp; Data Scientist</title>
-  <meta name="description" content="Economist and data scientist in Austin, Texas. Economic measurement and policy analysis across labour markets, criminal justice, higher education and the space economy — with original research on regional AI usage." />
+  <meta name="description" content="Economist and data scientist in Austin, Texas. Economic measurement and policy analysis across labor markets, criminal justice, higher education and the space economy, with original research on regional AI usage." />
   <meta name="author" content="Carlos Ignacio Navarro" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Carlos Ignacio Navarro" />
   <meta property="og:title" content="Carlos Ignacio Navarro — Economist &amp; Data Scientist" />
-  <meta property="og:description" content="Economic measurement and policy analysis across labour markets, criminal justice, higher education and the space economy — with original research on regional AI usage." />
+  <meta property="og:description" content="Economic measurement and policy analysis across labor markets, criminal justice, higher education and the space economy, with original research on regional AI usage." />
   <meta property="og:url" content="https://carlosignacionavarro.com/" />
   <meta property="og:image" content="https://carlosignacionavarro.com/photos/Carlos_NP_5_2.JPG" />
   <meta property="og:image:alt" content="Carlos Ignacio Navarro" />
@@ -391,24 +391,35 @@
       line-height: 1.6;
     }
 
-    /* Pinned card for research hosted on this site. */
-    .pub-card-link {
+    /* Any publication card that links somewhere. */
+    .pub-link {
       display: block;
       text-decoration: none;
-      background: rgba(255, 255, 255, 0.72);
-      border-left-width: 4px;
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
 
-    .pub-card-link:hover {
+    .pub-link:hover {
       border-color: rgba(53, 117, 198, 0.4);
       border-left-color: var(--accent-dark);
       box-shadow: 0 4px 18px rgba(13, 33, 68, 0.07);
       transform: translateY(-2px);
     }
 
+    /* Extra emphasis for research hosted on this site. */
+    .pub-card-link {
+      background: rgba(255, 255, 255, 0.72);
+      border-left-width: 4px;
+    }
+
     .pub-readmore { color: var(--accent-dark); font-weight: 600; }
-    .pub-card-link:hover .pub-readmore { color: var(--accent-dark); }
+
+    /* Marks a card that opens an external site. */
+    .pub-ext .pub-title::after {
+      content: ' \2197';
+      color: var(--accent-dark);
+      font-size: 0.85em;
+      font-weight: 400;
+    }
 
     /* ── CONTACT ── */
     #contact { background: var(--bg-secondary); }
@@ -506,7 +517,7 @@
     <p class="hero-eyebrow">Economist &amp; Data Scientist</p>
     <h1 class="hero-name">Carlos Ignacio<br><span>Navarro</span></h1>
     <p class="hero-tagline">
-      Building measurement where the data doesn't cooperate.
+      Quantifying the hard to measure.
     </p>
     <div class="hero-tags">
       <span class="hero-tag">Applied Economics</span>
@@ -514,7 +525,7 @@
       <span class="hero-tag">Python · SQL · Stata</span>
       <span class="hero-tag">Tableau</span>
       <span class="hero-tag">Policy Analysis</span>
-      <span class="hero-tag">Agentic AI Research</span>
+      <span class="hero-tag">Index Construction</span>
       <span class="hero-tag">Bilingual EN/ES</span>
     </div>
     <div class="hero-cta">
@@ -532,7 +543,7 @@
         <p class="feature-label">Featured research</p>
         <p class="feature-finding">
           Within countries, regions with more service employment use AI for proportionally
-          <em>less</em> technical work — the opposite of the obvious guess.
+          <em>less</em> technical work: the opposite of the obvious guess.
         </p>
         <p class="feature-scope">
           279 OECD regions across 35 countries · Anthropic's Economic Index paired with OECD
@@ -559,11 +570,10 @@
     <div class="about-grid">
       <div class="about-body">
         <p>
-          I grew up in Rio Bravo, Tamaulipas — across the Rio Grande from Donna, TX,
-          in the heart of the Rio Grande Valley. Growing up on the border meant growing
-          up bilingual, bicultural, and fluent in navigating between worlds. That instinct
-          for context — who the data affects, where people actually live — has shaped
-          every research project I've touched since.
+          I grew up on the Texas–Mexico border, in the Rio Grande Valley. That meant
+          growing up bilingual, bicultural, and fluent in navigating between worlds.
+          It left me with an instinct for who the data affects and where people actually
+          live, and that has shaped every research project I've touched since.
         </p>
         <p>
           My career traces a deliberate arc from the border outward. I started in
@@ -603,12 +613,12 @@
           <div class="fact-value">BA in Economics<br>University of Texas Pan American</div>
         </div>
         <div class="fact-card">
-          <div class="fact-label">Origin</div>
-          <div class="fact-value">Rio Bravo, Tamaulipas, Mexico<br><small style="color:var(--text-secondary)">US–Mexico border · Dual citizen</small></div>
+          <div class="fact-label">Location</div>
+          <div class="fact-value">Austin, Texas<br><small style="color:var(--text-secondary)">Open to relocation</small></div>
         </div>
         <div class="fact-card">
           <div class="fact-label">Languages</div>
-          <div class="fact-value">English (native) · Spanish (native)</div>
+          <div class="fact-value">English (native) · Spanish (native) · Japanese (beginner)</div>
         </div>
       </div>
     </div>
@@ -629,7 +639,7 @@
         <div class="timeline-org">Texas Space Commission · Austin, TX</div>
         <div class="timeline-body">
           <ul>
-            <li>Engineered the Texas Space Workforce Index — the state's first high-fidelity economic indicator for the commercial space sector — validating 40% workforce growth since 2015 and quantifying a $132K average space wage premium (1.8× the state average).</li>
+            <li>Engineered the Texas Space Workforce Index, the state's first high-fidelity economic indicator for the commercial space sector, validating 40% workforce growth since 2015 and quantifying a $132K average space wage premium (1.8× the state average).</li>
             <li>Designed the agency's foundational data pipelines and authored internal governance directives, successfully harmonizing conflicting state security standards (TAC 202) with federal research ethics (Common Rule) to enable compliant survey research.</li>
             <li>Serves as quantitative lead and trusted advisor to executive leadership and federal partners, translating aerospace supply-chain analysis into actionable investment strategy and legislative testimony.</li>
           </ul>
@@ -650,14 +660,26 @@
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-date">March 2018 – April 2022</div>
+        <div class="timeline-date">March 2018 – July 2022</div>
         <div class="timeline-role">Senior Research Associate</div>
         <div class="timeline-org">Private Enterprise Research Center, Texas A&amp;M University · College Station, TX</div>
         <div class="timeline-body">
           <ul>
-            <li>Co-authored "The Effect of Public Health Insurance on Criminal Recidivism," published in the <em>Journal of Policy Analysis and Management</em> (2021) — used Medicaid expansion variation and individual-level NCRP prisoner data to establish causal reductions in violent and public-order recidivism.</li>
+            <li>Co-authored "The Effect of Public Health Insurance on Criminal Recidivism," published in the <em>Journal of Policy Analysis and Management</em> (2021), using Medicaid expansion variation and individual-level NCRP prisoner data to establish causal reductions in violent and public-order recidivism.</li>
             <li>Built the College Station-Bryan Economic Index from scratch, devising a sales-tax proxy for retail activity when official monthly data was unavailable; the index became a widely-cited regular publication for local business leaders and policymakers.</li>
-            <li>Directed the COVID-19 Business Impact Survey — executed rapid data collection, cleaning, and analysis under crisis timelines to provide situational awareness to municipal leaders during the pandemic.</li>
+            <li>Directed the COVID-19 Business Impact Survey, executing rapid data collection, cleaning, and analysis under crisis timelines to provide situational awareness to municipal leaders during the pandemic.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">October 2015 – May 2017</div>
+        <div class="timeline-role">Language Group Leader</div>
+        <div class="timeline-org">Bush School of Government and Public Service, Texas A&amp;M University · College Station, TX</div>
+        <div class="timeline-body">
+          <ul>
+            <li>Led professional Spanish instruction for graduate policy students, achieving a 100% passing rate on proficiency assessments.</li>
+            <li>Designed conversation, lecture and discussion sessions targeting syntax, vocabulary and the professional register used in policy and diplomatic settings.</li>
           </ul>
         </div>
       </div>
@@ -670,6 +692,19 @@
           <ul>
             <li>Analyzed the EU Commission's challenge to the Netherlands–Starbucks Advanced Pricing Agreement using the Transactional Net Margin Method and Orbis / Bureau van Dijk financial data.</li>
             <li>Co-authored "The Value Chain: A Study of the Coffee Industry," a chapter in <em>A Practical Guide to US Transfer Pricing</em> (LexisNexis), with William Byrnes and Nima Khodakarami.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">January 2014 – July 2015</div>
+        <div class="timeline-role">Research Associate</div>
+        <div class="timeline-org">Center for Survey Research, University of Texas–Pan American · Edinburg, TX</div>
+        <div class="timeline-body">
+          <ul>
+            <li>Supported faculty research end to end: instrument design and translation, data collection, and the compilation and interpretation of results.</li>
+            <li>Ran quantitative analysis, focus groups, interviews and phone surveys; managed and analyzed data in SPSS and Qualtrics and built the underlying databases.</li>
+            <li>Introduced a cloud-based document-sharing workflow that cut materials cost and turnaround time during field collection.</li>
           </ul>
         </div>
       </div>
@@ -725,10 +760,8 @@
       <div class="skill-group">
         <div class="skill-group-title">AI &amp; Emerging Tools</div>
         <div class="skill-pills">
-          <span class="skill-pill">Agentic AI</span>
           <span class="skill-pill">LLM Integration</span>
           <span class="skill-pill">AI-Assisted Research</span>
-          <span class="skill-pill">Prompt Engineering</span>
           <span class="skill-pill">Claude API</span>
         </div>
       </div>
@@ -792,7 +825,7 @@
           <span class="skill-pill">Stakeholder Management</span>
           <span class="skill-pill">Legislative Testimony</span>
           <span class="skill-pill">Cross-functional Collaboration</span>
-          <span class="skill-pill">LLM Integration</span>
+          <span class="skill-pill">Executive Advisory</span>
         </div>
       </div>
 
@@ -865,7 +898,7 @@
       <div class="ig-head">
         <div>
           <div class="ig-head-name">Carlos Ignacio Navarro</div>
-          <div class="ig-head-sub">Research economist · Data scientist · AI-augmented</div>
+          <div class="ig-head-sub">Research economist · Data scientist · Policy analyst</div>
         </div>
         <div class="ig-head-tag">The story in data</div>
       </div>
@@ -885,7 +918,7 @@
               <div class="ig-stop-dot"><div class="ig-stop-dot-fill"></div></div>
               <div class="ig-stop-city">Edinburg, TX</div>
               <div class="ig-stop-yr">2009–2015</div>
-              <div class="ig-stop-role">UTPA · BA Econ, cum Laude</div>
+              <div class="ig-stop-role">UTPA · BA Econ 2013 · Center for Survey Research</div>
             </div>
             <div class="ig-stop">
               <div class="ig-stop-dot"><div class="ig-stop-dot-fill"></div></div>
@@ -898,12 +931,6 @@
               <div class="ig-stop-city">College Station, TX</div>
               <div class="ig-stop-yr">2015–2022</div>
               <div class="ig-stop-role">Bush School MIA · Fellowship · PERC</div>
-            </div>
-            <div class="ig-stop">
-              <div class="ig-stop-dot"><div class="ig-stop-dot-fill"></div></div>
-              <div class="ig-stop-city">Fort Worth, TX</div>
-              <div class="ig-stop-yr">2016</div>
-              <div class="ig-stop-role">TAMU Law · transfer pricing</div>
             </div>
             <div class="ig-stop now">
               <div class="ig-stop-dot"><div class="ig-stop-dot-fill"></div></div>
@@ -920,28 +947,28 @@
           <div class="ig-sec-lbl">By the numbers</div>
           <div class="ig-nums-grid">
             <div class="ig-num-card">
-              <div class="ig-num-val">13+</div>
+              <div class="ig-num-val">40%</div>
+              <div class="ig-num-lbl">Texas space workforce growth validated, 2015–2025</div>
+            </div>
+            <div class="ig-num-card">
+              <div class="ig-num-val">$132K</div>
+              <div class="ig-num-lbl">space-sector wage premium · 1.8× state average</div>
+            </div>
+            <div class="ig-num-card">
+              <div class="ig-num-val">$1.61</div>
+              <div class="ig-num-lbl">returned per $1 spent on prison college programs</div>
+            </div>
+            <div class="ig-num-card">
+              <div class="ig-num-val">279</div>
+              <div class="ig-num-lbl">OECD regions in the AI usage study</div>
+            </div>
+            <div class="ig-num-card">
+              <div class="ig-num-val">JPAM</div>
+              <div class="ig-num-lbl">peer-reviewed publication</div>
+            </div>
+            <div class="ig-num-card">
+              <div class="ig-num-val">10+</div>
               <div class="ig-num-lbl">years of research experience</div>
-            </div>
-            <div class="ig-num-card">
-              <div class="ig-num-val">40+</div>
-              <div class="ig-num-lbl">publications, reports & studies</div>
-            </div>
-            <div class="ig-num-card">
-              <div class="ig-num-val">6</div>
-              <div class="ig-num-lbl">distinct sectors worked in</div>
-            </div>
-            <div class="ig-num-card">
-              <div class="ig-num-val">2</div>
-              <div class="ig-num-lbl">countries of citizenship</div>
-            </div>
-            <div class="ig-num-card">
-              <div class="ig-num-val">1</div>
-              <div class="ig-num-lbl">peer-reviewed journal (JPAM)</div>
-            </div>
-            <div class="ig-num-card">
-              <div class="ig-num-val">6</div>
-              <div class="ig-num-lbl">professional certifications</div>
             </div>
           </div>
         </div>
@@ -972,7 +999,7 @@
 
       <div class="ig-foot">
         <div class="ig-foot-txt">
-          Dual citizen · US & Mexico · U.S. Congress–George H.W. Bush Fellowship recipient
+          U.S. Congress–George H.W. Bush Fellowship recipient
         </div>
         <div class="ig-langs">
           <span class="ig-lang">EN</span>
@@ -993,109 +1020,109 @@
     <div class="section-divider"></div>
     <div class="pub-list">
 
-      <a class="pub-card pub-card-link" href="research/ai-usage-regional-economies/">
+      <a class="pub-card pub-link pub-card-link" href="research/ai-usage-regional-economies/">
         <div class="pub-type">Independent Research · New</div>
-        <div class="pub-title">More service jobs, less technical AI use — a subnational look</div>
+        <div class="pub-title">More service jobs, less technical AI use: a subnational look</div>
         <div class="pub-meta">Carlos Ignacio Navarro · August 2026 · <span class="pub-readmore">Read on this site →</span></div>
         <div class="pub-abstract">
           Pairs Anthropic's Economic Index with OECD regional employment statistics across 279
           regions in 35 countries. Within countries, regions with more service employment show a
-          lower share of AI usage going to technical work — the reverse of the intuitive mapping
+          lower share of AI usage going to technical work, reversing the intuitive mapping
           from industry mix to technical AI use. Survives country fixed effects, 35
           leave-one-country-out refits, a wild cluster bootstrap, an independent replication in
           Stata, and a second usage measure built from a different classification scheme.
         </div>
       </a>
 
-      <div class="pub-card">
+      <a class="pub-card pub-link pub-ext" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3425457" target="_blank" rel="noopener">
         <div class="pub-type">Peer-Reviewed</div>
         <div class="pub-title">The Effect of Public Health Insurance on Criminal Recidivism</div>
         <div class="pub-meta">Erkmen G. Aslim, Murat C. Mungan, Carlos I. Navarro, Han Yu · <em>Journal of Policy Analysis and Management</em> · 2021</div>
         <div class="pub-abstract">
-          Exploits variation in state Medicaid expansion decisions — and individual-level National Corrections Reporting Program data — to establish that access to public health insurance causally reduces recidivism among offenders convicted of violent and public-order crimes, driven by increased criminal-justice referrals to addiction treatment.
+          Exploits variation in state Medicaid expansion decisions, together with individual-level National Corrections Reporting Program data, to establish that access to public health insurance causally reduces recidivism among offenders convicted of violent and public-order crimes, driven by increased criminal-justice referrals to addiction treatment.
         </div>
-      </div>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card pub-link pub-ext" href="https://www.researchgate.net/publication/326786435_The_value_chain_A_study_of_the_coffee_industry" target="_blank" rel="noopener">
         <div class="pub-type">Book Chapter</div>
         <div class="pub-title">The Value Chain: A Study of the Coffee Industry</div>
         <div class="pub-meta">William H. Byrnes, Nima Khodakarami, Carlos Navarro Perez · <em>A Practical Guide to US Transfer Pricing</em>, LexisNexis</div>
         <div class="pub-abstract">
           A transfer pricing case study applying the Transactional Net Margin Method to a hypothetical specialty coffee roaster in Europe, tracing the full supply and value chain from cultivation to consumer and identifying comparable parties using Orbis financial data.
         </div>
-      </div>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card pub-link pub-ext" href="https://texas2036.org/wp-content/uploads/2025/01/Opening-Doors-The-State-of-Higher-Education-in-Texas-Prisons.pdf" target="_blank" rel="noopener">
         <div class="pub-type">Policy Report</div>
         <div class="pub-title">Opening Doors: The State of Higher Education in Texas Prisons</div>
         <div class="pub-meta">Luis Soberon &amp; Carlos Ignacio Navarro · Texas 2036 · November 2024</div>
         <div class="pub-abstract">
           Finds that participation in prison college programs reduces recidivism by up to 41.5% and yields a $1.61 return per $1 spent; recommends governance reforms, expanded community college access, and integrated data systems to scale higher education across TDCJ facilities.
         </div>
-      </div>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card pub-link pub-ext" href="https://oaktrust.library.tamu.edu/server/api/core/bitstreams/e2b5bd8f-e353-4589-9618-aec8424844dc/content" target="_blank" rel="noopener">
         <div class="pub-type">Working Paper</div>
         <div class="pub-title">Methodology for Constructing an Economic Index for the College Station-Bryan MSA</div>
         <div class="pub-meta">Dennis W. Jansen, Carlos I. Navarro, Andrew J. Rettenmaier, Tatevik Sekhposyan · Private Enterprise Research Center, Texas A&amp;M University · October 2018</div>
         <div class="pub-abstract">
           Presents the dynamic factor model methodology and data sources used to build a monthly coincident business-cycle index for the College Station-Bryan metropolitan area, using sales-tax collections as a proxy for retail activity when official monthly GDP data is unavailable.
         </div>
-      </div>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card pub-link pub-ext" href="https://scholarworks.gvsu.edu/cgi/viewcontent.cgi?article=1250&amp;context=sbr" target="_blank" rel="noopener">
         <div class="pub-type">Policy Report</div>
         <div class="pub-title">Pandemic Misery Index: Economic and Health Implications of COVID-19</div>
         <div class="pub-meta">Erkmen G. Aslim &amp; Carlos I. Navarro · <em>Seidman Business Review</em>, Vol. 27, Issue 1 · Winter 2021</div>
         <div class="pub-abstract">
-          Adapts the Pandemic Misery Index — combining unemployment rates with COVID-19 deaths per 10,000 — to Michigan MSAs, finding wide regional variation (PMI range: 11.82–26.09) and identifying policy effectiveness in managing simultaneous economic and public health burdens.
+          Adapts the Pandemic Misery Index, which combines unemployment rates with COVID-19 deaths per 10,000, to Michigan MSAs, finding wide regional variation (PMI range: 11.82–26.09) and identifying policy effectiveness in managing simultaneous economic and public health burdens.
         </div>
-      </div>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card pub-link pub-ext" href="https://texas2036.org/posts/aerospace-employment-remains-on-ascent-post-pandemic/" target="_blank" rel="noopener">
         <div class="pub-type">Blog Post</div>
         <div class="pub-title">Aerospace Employment Remains on Ascent Post Pandemic</div>
         <div class="pub-meta">Carlos Ignacio Navarro · Texas 2036 · August 2023</div>
         <div class="pub-abstract">
           Documents Texas aerospace industry employment reaching an all-time high of 154,918 jobs by end of 2022, with Texans holding roughly one in ten space industry jobs nationwide as the sector recovers and the Legislature commits $350M to the new Texas Space Commission.
         </div>
-      </div>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card pub-link pub-ext" href="https://texas2036.org/posts/data-texas-draws-richer-individuals-from-other-states/" target="_blank" rel="noopener">
         <div class="pub-type">Blog Post</div>
         <div class="pub-title">Data: Texas Draws Richer Individuals from Other States</div>
         <div class="pub-meta">Carlos Ignacio Navarro · Texas 2036 · September 2023</div>
         <div class="pub-abstract">
           Uses IRS address-change data across Commuting Zones to show that out-of-state movers to Texas have higher average incomes than within-state movers, with the largest flows suggesting Texas is an especially attractive destination for wealthy households.
         </div>
-      </div>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card pub-link pub-ext" href="https://texas2036.org/posts/teacher-wages-and-projected-growth-what-to-know/" target="_blank" rel="noopener">
         <div class="pub-type">Blog Post</div>
         <div class="pub-title">Teacher Wages and Projected Growth: What to Know</div>
         <div class="pub-meta">Carlos Ignacio Navarro · Texas 2036 · April 2023</div>
         <div class="pub-abstract">
-          Draws on Texas Workforce Commission occupational projections to show that four of the ten fastest-growing bachelor's-degree occupations in Texas are in teaching — yet all four rank among the lowest-paid in that same cohort.
+          Draws on Texas Workforce Commission occupational projections to show that four of the ten fastest-growing bachelor's-degree occupations in Texas are in teaching, yet all four rank among the lowest-paid in that same cohort.
         </div>
-      </div>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card pub-link pub-ext" href="https://texas2036.org/posts/what-are-texas-occupational-projections-for-this-decade/" target="_blank" rel="noopener">
         <div class="pub-type">Blog Post</div>
         <div class="pub-title">Jobs and Wages: Projections from Now Until 2030</div>
         <div class="pub-meta">Carlos Ignacio Navarro · Texas 2036 · February 2023</div>
         <div class="pub-abstract">
-          Examines TWC projections showing 18.3% Texas employment growth through 2030 — more than double the national rate — while highlighting a persistent $4,000 average wage gap relative to the US and a decade-long concentration of growth in low-wage jobs.
+          Examines TWC projections showing 18.3% Texas employment growth through 2030, more than double the national rate, while highlighting a persistent $4,000 average wage gap relative to the US and a decade-long concentration of growth in low-wage jobs.
         </div>
-      </div>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card pub-link pub-ext" href="https://texas2036.org/news-analysis/txs-labor-market-and-the-price-of-recovery-strategic-framework/" target="_blank" rel="noopener">
         <div class="pub-type">Blog Post</div>
         <div class="pub-title">TX's Labor Market and the Price of Recovery: Strategic Framework</div>
         <div class="pub-meta">Carlos Ignacio Navarro · Texas 2036 · December 2022</div>
         <div class="pub-abstract">
-          Analyzes the tightest Texas labor market in a decade — unemployment fell from a 12.6% pandemic peak to 4% by September 2022 — examining the economic cost of recovery and the structural dynamics behind persistently more job openings than unemployed workers.
+          Analyzes the tightest Texas labor market in a decade, with unemployment falling from a 12.6% pandemic peak to 4% by September 2022, examining the economic cost of recovery and the structural dynamics behind persistently more job openings than unemployed workers.
         </div>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -1109,17 +1136,13 @@
       <h2 class="section-title">Contact</h2>
       <div class="section-divider"></div>
       <p class="contact-tagline">
-        Open to roles in data science, applied economics, and policy analytics —
+        Open to roles in data science, applied economics, and policy analytics,
         especially at organizations working at scale. Feel free to reach out.
       </p>
       <div class="contact-links">
         <a href="mailto:ci.navarrop@gmail.com" class="contact-link">
           <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
           ci.navarrop@gmail.com
-        </a>
-        <a href="mailto:carlos.navarroperez@space.texas.gov" class="contact-link">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
-          carlos.navarroperez@space.texas.gov
         </a>
         <a href="https://www.linkedin.com/in/cinavarro/" target="_blank" rel="noopener" class="contact-link">
           <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM9 17H6.5v-7H9v7zm-1.25-8a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zM18 17h-2.5v-3.5c0-1-.02-2.3-1.4-2.3-1.4 0-1.6 1.1-1.6 2.2V17H10v-7h2.4v1h.03a2.6 2.6 0 0 1 2.37-1.3c2.53 0 3 1.66 3 3.82V17z"/></svg>
@@ -1130,15 +1153,13 @@
           GitHub
         </a>
       </div>
-      <!-- FINAL STEP: restore once the one-page resume PDF is in site\ and named here.
-      <a href="CarlosNavarro_Resume.pdf" class="btn btn-primary" download>Download Resume (PDF)</a>
-      -->
+      <a href="Navarro_CarlosIgnacio.pdf" class="btn btn-primary" download>Download Resume (PDF)</a>
     </div>
   </div>
 </section>
 
 <footer>
-  &copy; 2026 Carlos Ignacio Navarro &nbsp;·&nbsp; Chasing signal through the noise — one dataset at a time.
+  &copy; 2026 Carlos Ignacio Navarro &nbsp;·&nbsp; Chasing signal through the noise, one dataset at a time.
 </footer>
 
 <script>
