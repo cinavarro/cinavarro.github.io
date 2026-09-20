@@ -316,6 +316,15 @@
       color: var(--accent-dark);
     }
 
+    .timeline-body a {
+      color: var(--accent-dark);
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .timeline-body a:hover { color: var(--accent); }
+
     /* ── SKILLS ── */
     #skills { background: var(--bg-secondary); }
 
@@ -657,6 +666,7 @@
         <div class="timeline-org">Texas Space Commission · Austin, TX</div>
         <div class="timeline-body">
           <ul>
+            <li>Built the Commission's <a href="https://space.texas.gov/grants" target="_blank" rel="noopener">public awards dashboard</a> for the Space Exploration and Aeronautics Research Fund, mapping every funded project statewide by recipient type with award-count and award-amount breakdowns, and filters by Texas Senate, Texas House and US House district so a member can find the projects funded in their own.</li>
             <li>Engineered a workforce index tracking employment and wage dynamics in the commercial space sector, applying industry classification design, imputation of suppressed data under federal disclosure constraints, and time-series construction across a NAICS classification revision to separate the sector methodologically from legacy aerospace and aviation activity.</li>
             <li>Authored the Commission's first Survey Data Collection Policy, reconciling state information-security and accessibility law (TAC 202, TAC 213), cloud procurement requirements (TX-RAMP), the Texas Public Information Act, and federal research-ethics standards (45 CFR 46); became the agency's internal authority on informed consent and sensitive personal information classification.</li>
             <li>Replaced a manual, error-prone Board grant-evaluation process with an automated, auditable data pipeline: deduplication logic, conflict-of-interest exclusion rules, and inter-rater dispersion metrics, producing the standing statistical reporting used by leadership during Board grant-evaluation rounds.</li>
@@ -1054,6 +1064,20 @@
           from industry mix to technical AI use. Survives country fixed effects, 35
           leave-one-country-out refits, a wild cluster bootstrap, an independent replication in
           Stata, and a second usage measure built from a different classification scheme.
+        </div>
+      </a>
+
+      <a class="pub-card pub-link pub-ext" href="https://space.texas.gov/grants" target="_blank" rel="noopener">
+        <div class="pub-type">Interactive Dashboard</div>
+        <div class="pub-title">Space Exploration and Aeronautics Research Fund: Awards Map</div>
+        <div class="pub-meta">Texas Space Commission · 2026</div>
+        <div class="pub-abstract">
+          Public dashboard mapping every project awarded under the Space Exploration and
+          Aeronautics Research Fund, which the Texas Legislature established in 2023 with a
+          $150 million appropriation, now fully committed. Plots awards statewide by recipient
+          type (business, non-profit, government entity, higher education) with award-count and
+          award-amount breakdowns, and filters by Texas Senate, Texas House and US House
+          district so a member can find the projects funded in their own.
         </div>
       </a>
 
