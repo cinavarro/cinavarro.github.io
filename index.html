@@ -156,7 +156,7 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
       gap: 3rem;
       align-items: start;
     }
@@ -173,21 +173,19 @@
       gap: 1.25rem;
     }
 
-    .about-photo {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-    }
-
+    /* The headshot floats inside the body column so the About text wraps
+       around it. It used to sit in its own grid column, which left a tall
+       empty gap beside the lower paragraphs once the bio grew to five. */
     .headshot {
-      width: 100%;
-      max-width: 300px;
+      float: right;
+      width: 240px;
       aspect-ratio: 3 / 4;
       object-fit: cover;
       object-position: center top;
       border-radius: 6px;
       border: 1px solid rgba(53, 117, 198, 0.15);
       box-shadow: 0 4px 20px rgba(13, 33, 68, 0.08);
+      margin: 0.35rem 0 1.25rem 1.75rem;
     }
 
     .fact-card {
@@ -499,18 +497,26 @@
     }
 
     /* ── RESPONSIVE ──
-       The about grid stacks at 900px, not 700px: three columns inside a
-       704px container gave each one about 180px, which crushed the fact
-       cards and shrank the headshot well below its intended size. */
+       The about grid stacks at 900px, not 700px: below that the fact cards
+       get crushed. The photo is not a grid column any more, it floats inside
+       the body text, so stacking only has to deal with body and facts. */
     @media (max-width: 900px) {
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .about-photo { order: -1; }
-      .headshot { max-width: 240px; }
+      .headshot { width: 200px; margin: 0.35rem 0 1rem 1.25rem; }
+    }
+
+    /* Below this the text column is too narrow to wrap beside the photo:
+       a 200px float would leave roughly 90px of text. Unfloat and center. */
+    @media (max-width: 560px) {
+      .headshot {
+        float: none;
+        display: block;
+        width: 200px;
+        margin: 0 auto 1.5rem;
+      }
     }
 
     @media (max-width: 700px) {
-      .headshot { max-width: 200px; }
-
       .feature-card {
         flex-direction: column;
         align-items: flex-start;
@@ -596,12 +602,14 @@
     <div class="section-divider"></div>
     <div class="about-grid">
       <div class="about-body">
+        <img src="photos/Carlos_NP_5_2.JPG"
+             alt="Carlos Ignacio Navarro"
+             class="headshot" />
         <p>
-          I grew up on the Texas–Mexico border, in Rio Bravo, Tamaulipas, and went to
-          school on both sides of it. That meant growing up bilingual, bicultural, and
-          fluent in navigating between worlds. It left me with an instinct for who the
-          data affects and where people actually live, and that has shaped every
-          research project I've touched since.
+          I grew up on the Texas–Mexico border and went to school on both sides of it.
+          That meant growing up bilingual, bicultural, and fluent in navigating between
+          worlds. It left me with an instinct for who the data affects and where people
+          actually live, and that has shaped every research project I've touched since.
         </p>
         <p>
           My career traces a deliberate arc from the border outward. I started in
@@ -642,11 +650,6 @@
           the ones where measurement is hard, the stakes are real, and a decision has to be
           made anyway.
         </p>
-      </div>
-      <div class="about-photo">
-        <img src="photos/Carlos_NP_5_2.JPG"
-             alt="Carlos Ignacio Navarro"
-             class="headshot" />
       </div>
       <div class="about-facts">
         <div class="fact-card">
